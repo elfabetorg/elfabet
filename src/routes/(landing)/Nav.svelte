@@ -21,8 +21,8 @@
 		<a href="/contact">Contact</a>
 	</div>
 	<div class="buttons-row">
-		<WaitlistButton {discordInviteURL} />
-		<DiscordButton {waitlistURL} />
+		<WaitlistButton {waitlistURL} />
+		<DiscordButton {discordInviteURL} />
 	</div>
 </nav>	
 

@@ -3,17 +3,20 @@
 </script>
 
 <a href={discordInviteURL}>
-	<button class="filled">
-		<img src="landing/logo_pure.svg" alt="Elfabet logo" class="button-image">
-		<p>Join waitlist</p>
+	<button class="outline">
+		<img src="landing/discord.svg" alt="Discord logo" class="button-image">
+		<p>Join Discord</p>
 	</button>
 </a>
 
 <style>
-	button.filled {
+	a {
+		text-decoration: none;
+	}
+	button.outline {
 		border: 1px solid var(--accent);
-		background-color: var(--accent);
-		color: white;
+		background-color: rgb(0, 0, 0, 0);
+		color: var(--accent);
 	}
 	img.button-image {
 		height: 16px;

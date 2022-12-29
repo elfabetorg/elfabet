@@ -1,6 +1,9 @@
 <script>
 	import DiscordButton from "./DiscordButton.svelte";
 	import WaitlistButton from "./WaitlistButton.svelte";
+
+	const discordInviteURL = "https://discord.gg/AGvQqFAj";
+	const waitlistURL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 </script>
 
 <section id="hero">
@@ -13,8 +16,8 @@ without losing your sanity
 		<p>Elfabet is an intuitive, pay-what-you-want submission manager optimized for the literary community. Made for editors, by editors. Launching Summer 2023.</p>
 	</div>
 	<div class="buttons-row">
-		<WaitlistButton />
-		<DiscordButton />
+		<WaitlistButton {waitlistURL} />
+		<DiscordButton {discordInviteURL} />
 	</div>
 </section>
 
