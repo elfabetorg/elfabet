@@ -3,10 +3,43 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
+
+	<style>
+		/* Whole document styling */
+		html {
+			font-family: 'DM Sans';
+			width: 100%;
+		}
+		body {
+			margin: 0 auto;
+		}
+		:root {
+			--accent: #112378;
+		}
+		/* TODO make discord and waitlist button components */
+		/* Button styling */
+		button {
+			font-family: 'DM Sans';
+			border-radius: 8px;
+			padding: 8px 16px;
+			font-size: 14px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			height: 40px;
+			gap: 8px;
+		}
+		button:hover {
+			cursor: pointer;
+		}
+	</style>
+
 </html>
