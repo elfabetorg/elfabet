@@ -11,7 +11,7 @@
 		color: var(--accent);
 		text-align: center;
 		padding-top: 72px;
-		height: calc(100vh;
+		height: calc(100vh);
 	}
 	p {
 		color: black;
