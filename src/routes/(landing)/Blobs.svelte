@@ -5,6 +5,9 @@
 </div>
 
 <style>
+	.blobs {
+		z-index: 0;
+	}
 	.shape-blob {
 		background: var(--gray);
 		height: 200px;

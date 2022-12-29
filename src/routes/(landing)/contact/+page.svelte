@@ -21,7 +21,7 @@ Also feel free to send a message through an alligator friend. Arnold (our alliga
 	#contact {
 		text-align: center;
 		display: flex;
-		padding-top: 72px;
+		padding-top: 36px;
 		flex-direction: column;
 		align-items: center;
 		height: calc(100vh - var(--nav-height));

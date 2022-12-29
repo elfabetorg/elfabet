@@ -53,10 +53,6 @@
 		font-weight: 700;
 		color: var(--accent);
 	}
-	p {
-		font-size: 16px;
-		line-height: 30px;
-	}
 	.sections {
 		display: flex;
 		flex-direction: column;

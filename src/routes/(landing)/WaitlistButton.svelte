@@ -23,4 +23,7 @@
 		width: auto;
 		padding-right: 2px;
 	}
+	p {
+		font-size: 14px;
+	}
 </style>
