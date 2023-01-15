@@ -1,5 +1,5 @@
 <script>
-	export let waitlistURL;
+	let waitlistURL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 </script>
 
 <a href={waitlistURL}>

@@ -1,5 +1,5 @@
 <script>
-	export let discordInviteURL;
+	let discordInviteURL = "https://discord.gg/AGvQqFAj";
 </script>
 
 <a href={discordInviteURL}>

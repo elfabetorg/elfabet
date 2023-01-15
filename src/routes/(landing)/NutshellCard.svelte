@@ -4,9 +4,13 @@
 	export let category;
 	export let content;
 	export let imagePath;
+
+	function tilt (node, options) {
+		VanillaTilt.init(node, options)
+	}
 </script>
 
-<div class="card" data-tilt>
+<div class="card" use:tilt>
 	<img src={imagePath} alt="" />
 	<div class="text-container">
 		<h3>{category.toUpperCase()}</h3>
@@ -16,7 +20,7 @@
 
 <style>
 	.card {
-		max-width: 400px;
+		max-width: 360px;
 		display: flex;
 		flex-direction: row;
 		padding: 24px 22px;

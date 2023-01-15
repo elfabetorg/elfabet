@@ -19,6 +19,7 @@
 		<a href="/"><img src="landing/logo.svg" alt="Elfabet logo"/></a>
 		<a href="/about">About</a>
 		<a href="/contact">Contact</a>
+		<a href="https://www.patreon.com">Support us!</a>
 	</div>
 	<div class="buttons-row">
 		<WaitlistButton {waitlistURL} />

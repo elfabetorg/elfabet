@@ -4,6 +4,7 @@
 		<a href="/legal/privacy-policy">Privacy Policy</a> |
 		<a href="/legal/terms-and-conditions">Terms & Conditions</a>
 	</div>
+	<!-- TODO add social links -->
 	<div class="social-links">
 		<a href="">
 			<img src="footer/footer_email.svg" />

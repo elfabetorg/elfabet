@@ -42,7 +42,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 24px;
-		margin-bottom: 36px;
+		margin-bottom: 56px;
 	}
 	h2 {
 		font-size: 24px;
