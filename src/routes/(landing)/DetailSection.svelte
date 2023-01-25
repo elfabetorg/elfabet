@@ -42,7 +42,11 @@
 		justify-content: center;
 		align-items: center;
 		padding: 24px;
-		margin-bottom: 56px;
+		margin-bottom: 64px;
+		gap: 80px;
+	}
+	img {
+		max-width: 400px;
 	}
 	h2 {
 		font-size: 24px;

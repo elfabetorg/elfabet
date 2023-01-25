@@ -17,7 +17,7 @@
 					'Oh, and we don’t take a cut out of submission fees and submitter donations.', 'None of that 5% + 99 cents stuff, wink wink. Except we’re forced to take a tiny little cut (just 2.7% of the total—don’t worry!), because we want to handle your payment information safely with Stripe.'
 				]
 			],
-			imagePath: "landing/arnold.svg"
+			imagePath: "landing/pricing_i.svg"
 		},
 		{
 			reverse: true,
@@ -30,7 +30,7 @@
 					'Help us make this better.', 'If you’re an editor seeing this, it would mean the world to us if you could take a few minutes out of your day and fill out this form detailing your process for sorting through submissions, so we can ensure we have specific features that allow everyone to more or less stick to their current processes— just vastly improved versions.'
 				]
 			],
-			imagePath: "landing/arnold.svg"
+			imagePath: "landing/automation_i.svg"
 		},
 		{
 			reverse: false,
@@ -43,7 +43,7 @@
 					'Wider file support.', 'We have Google Drive and Google Docs integration, just in case you’re tired of sorting through all those docx. files. Using Docs also helps us free up server space, letting us keep Elfabet free for as many people as possible.'
 				]
 			],
-			imagePath: "landing/arnold.svg"
+			imagePath: "landing/centralization_i.svg"
 		}
 	];
 </script>
