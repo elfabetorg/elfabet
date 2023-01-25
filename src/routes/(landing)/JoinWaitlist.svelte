@@ -27,6 +27,7 @@
 		font-size: 30px;
 		margin-top: 30px;
 		margin-bottom: 4px;
+		font-weight: normal;
 	}
 	p {
 		max-width: 400px;

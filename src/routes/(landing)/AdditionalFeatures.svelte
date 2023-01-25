@@ -65,10 +65,12 @@
 	}
 	h1 {
 		font-size: 30px;
+		font-weight: normal;
 	}
 	h2 {
 		font-size: 18px;
 		padding-bottom: 16px;
+		font-weight: normal;
 	}
 	h3 {
 		font-size: 16px;
@@ -76,6 +78,7 @@
 		font-weight: 700;
 		text-align: left;
 		padding-top: 16px;
+		font-weight: normal;
 	}
 	.row {
 		display: flex;

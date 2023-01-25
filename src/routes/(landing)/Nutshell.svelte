@@ -6,7 +6,7 @@
 	const cardData = [
 		{
 			category: "pricing",
-			content: "No need to sell your arm. Pay us whatever you want.",
+			content: "No need to sell your arm. Pay us what you want.",
 			imagePath: `${basePath}pricing.svg`
 		},
 		{

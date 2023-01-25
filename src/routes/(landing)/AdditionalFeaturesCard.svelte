@@ -21,7 +21,7 @@
 		padding-bottom: 4px;
 		background-color: white;
 		color: black;
-		max-width: 360px;
+		max-width: 320px;
 		border-radius: 16px;
 	}
 	h2 {

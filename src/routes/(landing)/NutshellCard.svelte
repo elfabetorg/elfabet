@@ -5,7 +5,7 @@
 	export let content;
 	export let imagePath;
 
-	function tilt (node, options) {
+	function tilt(node, options) {
 		VanillaTilt.init(node, options)
 	}
 </script>
@@ -20,7 +20,7 @@
 
 <style>
 	.card {
-		max-width: 360px;
+		max-width: 340px;
 		display: flex;
 		flex-direction: row;
 		padding: 24px 22px;
@@ -35,7 +35,6 @@
 	}
 	h3 {
 		font-size: 12px;
-		font-weight: bolder;
 		line-height: 20px;
 		letter-spacing: 0.04em;
 		color: var(--accent);
@@ -43,6 +42,7 @@
 	}
 	h4 {
 		font-size: 22px;
+		font-weight: normal;
 		margin: 0;
 	}
 	img {
