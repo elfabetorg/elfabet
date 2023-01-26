@@ -25,7 +25,7 @@ without losing your sanity
 	#hero {
 		display: flex;
 		flex-direction: column;
-		gap: 32px;
+		gap: 24px;
 		justify-content: center;
 		align-content: center;
 		align-items: center;
