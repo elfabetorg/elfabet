@@ -29,7 +29,7 @@ without losing your sanity
 		justify-content: center;
 		align-content: center;
 		align-items: center;
-		height: calc(100vh - var(--nav-height));
+		height: calc(120vh - var(--nav-height));
 	}
 	.container {
 		display: flex;
