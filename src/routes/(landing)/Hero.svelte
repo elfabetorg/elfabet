@@ -29,7 +29,9 @@ without losing your sanity
 		justify-content: center;
 		align-content: center;
 		align-items: center;
-		height: calc(120vh - var(--nav-height));
+		top: 24px;
+		bottom: 16px;
+		height: calc(100vh - var(--nav-height));
 	}
 	.container {
 		display: flex;
