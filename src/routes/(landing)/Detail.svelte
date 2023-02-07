@@ -11,7 +11,7 @@
 					'We’re not a big corporation.', 'We don’t want to drain your bank account. Elfabet is custom-made for the literary community and we know everyone’s always strapped for cash, which is why we’ll always be free (up to a point— server space is expensive, and we know just how many submissions some of you get!)'
 				],
 				[
-					'Support us through Patreon to gain extra perks, like additional storage.', 'Or, instead of paying us, spend that money on paying contributors and staff. The Patreon will be available upon Elfabet’s official launch and all money earned through it will go directly back into Elfabet. To support us, (Abigail and Ariel) directly — not Elfabet — feel free to donate to us through our Ko-Fi.'
+					'Support us through Patreon to gain extra perks, like additional storage.', 'Or, instead of paying us, spend that money on paying contributors and staff. The Patreon will be available upon Elfabet’s official launch and all money earned through it will go directly back into Elfabet. To support us, (Abigail and Ariel) directly — not Elfabet — feel free to donate to us through <a href="https://ko-fi.com/elfabet#paypalModal">our Ko-Fi.</a>'
 				],
 				[
 					'Oh, and we don’t take a cut out of submission fees and submitter donations.', 'None of that 5% + 99 cents stuff, wink wink. Except we’re forced to take a tiny little cut (just 2.7% of the total—don’t worry!), because we want to handle your payment information safely with Stripe.'

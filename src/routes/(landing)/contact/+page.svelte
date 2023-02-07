@@ -17,7 +17,7 @@ Also feel free to send a message through an alligator friend. Arnold (our alliga
 	</p>
 	<!-- TODO make blobs work for mobile -->
 	<DeviceDetector showInDevice="desktop">
-		<Blobs />
+	<Blobs />
 	</DeviceDetector>
 </div>
 

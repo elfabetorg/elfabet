@@ -17,7 +17,7 @@
 			<h2>{title}</h2>
 			<div class="sections">
 				{#each sections as section}
-					<p><b>{section[0]}</b> {section[1]}</p>
+					<p><b>{section[0]}</b> {@html section[1]}</p>
 				{/each}
 			</div>
 		</div>
@@ -28,7 +28,7 @@
 			<h2>{title}</h2>
 			<div class="sections">
 				{#each sections as section}
-					<p><b>{section[0]}</b> {section[1]}</p>
+					<p><b>{section[0]}</b> {@html section[1]}</p>
 				{/each}
 			</div>
 		</div>
@@ -43,7 +43,7 @@
 			<h2>{title}</h2>
 			<div class="sections">
 				{#each sections as section}
-					<p><b>{section[0]}</b> {section[1]}</p>
+					<p><b>{section[0]}</b> {@html section[1]}</p>
 				{/each}
 			</div>
 		</div>
