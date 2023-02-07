@@ -21,9 +21,10 @@
 	img.button-image {
 		height: 16px;
 		width: auto;
-		padding-right: 2px;
 	}
 	p {
-		font-size: 14px;
+		font-size: 13px;
+		line-height: 120%;
+		padding-left: 2px;
 	}
 </style>

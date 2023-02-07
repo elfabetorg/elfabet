@@ -48,4 +48,10 @@
 	img {
 		width: 64px;
 	}
+	/* Mobile */
+	@media screen and (max-width:420px) {
+		.card {
+			max-width: 280px;
+		}
+	}
 </style>

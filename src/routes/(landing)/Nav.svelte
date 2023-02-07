@@ -1,4 +1,5 @@
 <script>
+	import DeviceDetector from "svelte-device-detector";
 	import { onMount } from "svelte";
 	import DiscordButton from "./DiscordButton.svelte";
 	import WaitlistButton from "./WaitlistButton.svelte";
@@ -19,12 +20,14 @@
 		<a href="/"><img src="landing/logo.svg" alt="Elfabet logo"/></a>
 		<a href="/about">About</a>
 		<a href="/contact">Contact</a>
-		<a href="https://www.patreon.com">Support us!</a>
+		<a href="https://ko-fi.com/elfabet#paypalModal">Support us!</a>
 	</div>
-	<div class="buttons-row">
-		<WaitlistButton {waitlistURL} />
-		<DiscordButton {discordInviteURL} />
-	</div>
+	<DeviceDetector showInDevice="desktop">
+		<div class="buttons-row">
+			<WaitlistButton {waitlistURL} />
+				<DiscordButton {discordInviteURL} />
+		</div>
+	</DeviceDetector>
 </nav>	
 
 <style>
@@ -47,7 +50,7 @@
 		align-items: center;
 		justify-items: center;
 		justify-content: center;
-		gap: 24px;
+		gap: 16px;
 	}
 	.buttons-row {
 		display: flex;
@@ -59,13 +62,10 @@
 		width: auto;
 	}
 	a {
-		font-size: 16px;
+		font-size: 14px;
 		line-height: 20px;
 		text-decoration: none;
 		margin-right: 16px;
 		color: var(--accent);
-	}
-	.spacer {
-		width: 100%;
 	}
 </style>

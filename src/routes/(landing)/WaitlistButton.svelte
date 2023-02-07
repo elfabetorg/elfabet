@@ -24,6 +24,7 @@
 		padding-right: 2px;
 	}
 	p {
-		font-size: 14px;
+		font-size: 13px;
+		line-height: 120%;
 	}
 </style>

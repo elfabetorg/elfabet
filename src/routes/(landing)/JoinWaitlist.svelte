@@ -38,4 +38,10 @@
 		flex-direction: row;
 		gap: 16px;
 	}
+	/* Mobile */
+	@media screen and (max-width:420px) {
+		img {
+			width: 320px;
+		}
+	}
 </style>

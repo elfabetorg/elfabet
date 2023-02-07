@@ -8,9 +8,9 @@
 
 <div id="landing-page">
 	<Hero />
-	<Nutshell />
+	<Nutshell /> 
 	<Detail />
-	<AdditionalFeatures />
+	<!-- <AdditionalFeatures /> -->
 	<JoinWaitlist />
 </div>
 

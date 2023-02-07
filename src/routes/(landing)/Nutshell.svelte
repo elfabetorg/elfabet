@@ -59,4 +59,10 @@
 		line-height: 36px;
 		text-align: center;
 	}
+	/* Mobile */
+	@media screen and (max-width:420px) {
+		.cards-container {
+			flex-direction: column;
+		}
+	}
 </style>

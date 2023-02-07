@@ -1,4 +1,6 @@
 <script>
+	import DeviceDetector from "svelte-device-detector";
+
 	export let title;
 	export let sections;
 	export let imagePath;
@@ -7,6 +9,20 @@
 </script>
 
 <section class="detail-section">
+	<DeviceDetector showInDevice="mobile">
+		<div class="illustration-container">
+			<img src={imagePath} />
+		</div>
+		<div class="text-content">
+			<h2>{title}</h2>
+			<div class="sections">
+				{#each sections as section}
+					<p><b>{section[0]}</b> {section[1]}</p>
+				{/each}
+			</div>
+		</div>
+	</DeviceDetector>
+	<DeviceDetector showInDevice="desktop">
 	{#if !reverse}
 		<div class="text-content">
 			<h2>{title}</h2>
@@ -32,6 +48,7 @@
 			</div>
 		</div>
 	{/if}
+</DeviceDetector>
 </section>
 
 <style>
@@ -66,5 +83,14 @@
 	.text-content {
 		text-align: left;
 		max-width: 500px;
+	}
+	@media screen and (max-width:420px) {
+		.detail-section {
+			flex-direction: column;
+			gap: 24px;
+		}
+		img {
+			max-width: 320px;
+		}
 	}
 </style>

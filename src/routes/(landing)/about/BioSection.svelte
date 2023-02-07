@@ -62,4 +62,11 @@
 		z-index: 2;
 		position: relative;
 	}
+	/* Mobile */
+	@media screen and (max-width:420px) {
+		#bio-section {
+			flex-direction: column;
+			gap: 64px;
+		}
+	}
 </style>

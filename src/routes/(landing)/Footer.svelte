@@ -4,18 +4,17 @@
 		<a href="/legal/privacy-policy">Privacy Policy</a> |
 		<a href="/legal/terms-and-conditions">Terms & Conditions</a>
 	</div>
-	<!-- TODO add social links -->
 	<div class="social-links">
-		<a href="">
+		<a href="mailto:elfabet.contact@gmail.com">
 			<img src="footer/footer_email.svg" />
 		</a>
-		<a href="">
+		<a href="https://discord.com/invite/2jXfkeEuKz">
 			<img src="footer/footer_discord.svg" />
 		</a>
-		<a href="">
+		<a href="https://twitter.com/elfabetorg">
 			<img src="footer/footer_twitter.svg" />
 		</a>
-		<a href="">
+		<a href="https://www.instagram.com/elfabetorg/">
 			<img src="footer/footer_instagram.svg" />
 		</a>
 	</div>
@@ -30,7 +29,7 @@
 		justify-content: center;
 		gap: 88px;
 		padding: 32px;
-		font-size: 14px
+		font-size: 14px;
 	}
 	a {
 		color: var(--accent);

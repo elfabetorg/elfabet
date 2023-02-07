@@ -1,4 +1,5 @@
 <script>
+	import DeviceDetector from "svelte-device-detector";
 	import Blobs from "../Blobs.svelte";
 </script>
 
@@ -8,13 +9,16 @@
 		We’re still in very early development and would love any and all of your comments, feedback, thoughts, ramblings, a laundry list of everything you hate about managing submissions. Seriously — we want to hear anything you have to tell us.
 		
 TO CONTACT, EITHER:
-⭐ ️Email us at elfabet.contact@gmail.com
-⭐ ️Shoot us a DM at @elfabetorg on Twitter
+⭐ ️Email us at <a href="mailto:elfabet.contact@gmail.com">elfabet.contact@gmail.com</a>
+⭐ ️Shoot us a DM at @elfabetorg on <a href="https://twitter.com/elfabetorg">Twitter</a> or <a href="https://www.instagram.com/elfabetorg/">Instagram</a>
 ⭐️ Drop a message in our Discord
 
 Also feel free to send a message through an alligator friend. Arnold (our alligator mascot) loves to socialize, so we’ll probably receive your feedback very quickly.
 	</p>
-	<Blobs />
+	<!-- TODO make blobs work for mobile -->
+	<DeviceDetector showInDevice="desktop">
+		<Blobs />
+	</DeviceDetector>
 </div>
 
 <style>
@@ -25,6 +29,8 @@ Also feel free to send a message through an alligator friend. Arnold (our alliga
 		flex-direction: column;
 		align-items: center;
 		height: calc(100vh - var(--nav-height));
+		padding-left: 48px;
+		padding-right: 48px;
 	}
 	p {
 		white-space: pre-wrap;

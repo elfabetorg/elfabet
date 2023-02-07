@@ -32,6 +32,7 @@ without losing your sanity
 		top: 24px;
 		bottom: 20px;
 		height: calc(100vh - var(--nav-height));
+		width: 100vw;
 	}
 	.container {
 		display: flex;
@@ -41,7 +42,7 @@ without losing your sanity
 		align-items: center;
 	}
 	img {
-		height: 141px;
+		height: 130px;
 		width: auto;
 		margin-bottom: 26px;
 	}
@@ -58,7 +59,7 @@ without losing your sanity
 	}
 	p {
 		text-align: center;
-		max-width: 629px;
+		max-width: 480px;
 		line-height: 160%;
 		margin-top: 24px;
 	}
@@ -66,5 +67,14 @@ without losing your sanity
 		display: flex;
 		flex-direction: row;
 		gap: 16px;
+	}
+	/* Mobile */
+	@media screen and (max-width:420px) {
+		h1 {
+			max-width: 320px;
+		}
+		p {
+			max-width: 320px;
+		}
 	}
 </style>

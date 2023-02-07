@@ -37,8 +37,8 @@
 		margin-top: 16px;
 	}
 	.profile-image {
-		height: 240px;
-		width: 240px;
+		max-height: 240px;
+		max-width: 240px;
 		object-fit: cover;
 	}
 	.icon {
