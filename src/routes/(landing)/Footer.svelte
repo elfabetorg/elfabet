@@ -1,8 +1,8 @@
 <nav>
 	<div class="links">
 		© 2022 Elfabet |
-		<a href="/legal/privacy-policy">Privacy Policy</a> |
-		<a href="/legal/terms-and-conditions">Terms & Conditions</a>
+		<!-- <a href="/legal/privacy-policy">Privacy Policy</a> |
+		<a href="/legal/terms-and-conditions">Terms & Conditions</a> -->
 	</div>
 	<div class="social-links">
 		<a href="mailto:elfabet.contact@gmail.com">
