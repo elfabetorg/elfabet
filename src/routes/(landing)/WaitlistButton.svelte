@@ -1,5 +1,5 @@
 <script>
-	let waitlistURL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+	let waitlistURL = "https://forms.gle/nVG2GDkaMKDTeaKq9";
 </script>
 
 <a href={waitlistURL}>

@@ -1,5 +1,5 @@
 <script>
-	let discordInviteURL = "https://discord.gg/AGvQqFAj";
+	let discordInviteURL = "https://discord.gg/9tMFWwDHcV";
 </script>
 
 <a href={discordInviteURL}>
