@@ -1,6 +1,6 @@
 <nav>
 	<div class="links">
-		© 2022 Elfabet |
+		© Elfabet 2023
 		<!-- <a href="/legal/privacy-policy">Privacy Policy</a> |
 		<a href="/legal/terms-and-conditions">Terms & Conditions</a> -->
 	</div>
