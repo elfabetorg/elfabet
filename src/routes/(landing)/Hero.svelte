@@ -8,7 +8,7 @@
 
 <section id="hero">
 	<div class="container">
-		<img src="landing/arnold.svg" />
+		<img src="landing/arnold.svg" alt="An image of Elfabet's mascot, arnold the alligator."/>
 		<h1> Manage your submissions 
 without losing your sanity
 (& your life savings)

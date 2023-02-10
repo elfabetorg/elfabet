@@ -10,13 +10,13 @@
 </script>
 
 <div class="bio">
-	<img class="profile-image" src={imagePath} alt="">
+	<img class="profile-image" src={imagePath} alt="An image of {name}, one of Elfabet's co-founders.">
 	<h2>{name}</h2>
 	<h3>{title}</h3>
 	<p>{bio}</p>
 	<div class="social-icons">
 		{#each socials as social}
-			<a href={social.link} target=”_blank”> <img id={social.imagePath} class="icon" src={social.imagePath} alt="" /> </a>
+			<a href={social.link} target=”_blank”> <img id={social.imagePath} class="icon" src={social.imagePath} alt="A link to {name}'s {social.name} account." /> </a>
 		{/each}
 	</div>
 </div>

@@ -11,14 +11,17 @@
 			bio: "Abigail Chang is a writer and editor based in Taipei, Taiwan. Her work appears or is forthcoming in Fractured Lit, Half-Mystic, the Cortland Review, the Citron Review, the Shore, Gone Lawn, Parentheses Journal and elsewhere. In her spare time, she listens to Frank Ocean and drinks too many iced lattes. Find her at twitter @honeybutterball",
 			socials: [
 				{
-					link: "",
+					name: "Gmail",
+					link: "mailto:abigail.c.chang@gmail.com",
 					imagePath: "about/gmail.svg"
 				},
 				{
+					name: "LinkedIn",
 					link: "https://www.linkedin.com/in/abigail-chang-80264b216/",
 					imagePath: "about/linkedin.svg"
 				},
 				{
+					name: "Twitter",
 					link: "https://twitter.com/honeybutterball",
 					imagePath: "about/twitter.svg"
 				},
@@ -31,14 +34,17 @@
 			bio: "Ariel Cheng is a developer and aspiring researcher who splits her time between  Taipei, Taiwan and Southborough, Massachusetts. She is fond of llamas, Google Scholar, Jung’s theory of cognitive functions, the AI Alignment problem and 3Blue1Brown. If you have a half-impossible idea or a pedantic inaccuracy to complain about, email her at ariel.kerry@gmail.com",
 			socials: [
 				{
+					name: "Github",
 					link: "https://github.com/arielCheng218",
 					imagePath: "about/github.svg"
 				},
 				{
-					link: "",
+					name: "Gmail",
+					link: "mailto:ariel.kerry@gmail.com",
 					imagePath: "about/gmail.svg"
 				},
 				{
+					name: "Twitter",
 					link: "https://twitter.com/arielchengg",
 					imagePath: "about/twitter.svg"
 				}

@@ -6,16 +6,16 @@
 	</div>
 	<div class="social-links">
 		<a href="mailto:elfabet.contact@gmail.com">
-			<img src="footer/footer_email.svg" />
+			<img src="footer/footer_email.svg" alt="Send an email to Elfabet."/>
 		</a>
 		<a href="https://discord.com/invite/2jXfkeEuKz" target=”_blank”>
-			<img src="footer/footer_discord.svg" />
+			<img src="footer/footer_discord.svg" alt="Join Elfabet's Discord server." />
 		</a>
 		<a href="https://twitter.com/elfabetorg" target=”_blank”>
-			<img src="footer/footer_twitter.svg" />
+			<img src="footer/footer_twitter.svg"  alt="A link to Elfabet's Twitter account."/>
 		</a>
 		<a href="https://www.instagram.com/elfabetorg/" target=”_blank”>
-			<img src="footer/footer_instagram.svg" />
+			<img src="footer/footer_instagram.svg"  alt="A link to Elfabet's Instagram account."/>
 		</a>
 	</div>
 </nav>
