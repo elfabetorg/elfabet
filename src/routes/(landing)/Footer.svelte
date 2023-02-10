@@ -8,13 +8,13 @@
 		<a href="mailto:elfabet.contact@gmail.com">
 			<img src="footer/footer_email.svg" />
 		</a>
-		<a href="https://discord.com/invite/2jXfkeEuKz">
+		<a href="https://discord.com/invite/2jXfkeEuKz" target=”_blank”>
 			<img src="footer/footer_discord.svg" />
 		</a>
-		<a href="https://twitter.com/elfabetorg">
+		<a href="https://twitter.com/elfabetorg" target=”_blank”>
 			<img src="footer/footer_twitter.svg" />
 		</a>
-		<a href="https://www.instagram.com/elfabetorg/">
+		<a href="https://www.instagram.com/elfabetorg/" target=”_blank”>
 			<img src="footer/footer_instagram.svg" />
 		</a>
 	</div>

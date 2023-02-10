@@ -10,7 +10,7 @@
 		
 TO CONTACT, EITHER:
 ⭐ ️Email us at <a href="mailto:elfabet.contact@gmail.com">elfabet.contact@gmail.com</a>
-⭐ ️Shoot us a DM at @elfabetorg on <a href="https://twitter.com/elfabetorg">Twitter</a> or <a href="https://www.instagram.com/elfabetorg/">Instagram</a>
+⭐ ️Shoot us a DM at @elfabetorg on <a href="https://twitter.com/elfabetorg" target=”_blank”>Twitter</a> or <a href="https://www.instagram.com/elfabetorg/" target=”_blank”>Instagram</a>
 ⭐️ Drop a message in our Discord
 
 Also feel free to send a message through an alligator friend. Arnold (our alligator mascot) loves to socialize, so we’ll probably receive your feedback very quickly.

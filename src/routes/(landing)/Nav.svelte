@@ -20,7 +20,7 @@
 		<a href="/"><img src="landing/logo.svg" alt="Elfabet logo"/></a>
 		<a href="/about">About</a>
 		<a href="/contact">Contact</a>
-		<a href="https://ko-fi.com/elfabet#paypalModal">Support us!</a>
+		<a href="https://ko-fi.com/elfabet#paypalModal" target=”_blank”>Support us!</a>
 	</div>
 	<DeviceDetector showInDevice="desktop">
 		<div class="buttons-row">

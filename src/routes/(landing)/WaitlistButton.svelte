@@ -2,7 +2,7 @@
 	let waitlistURL = "https://forms.gle/nVG2GDkaMKDTeaKq9";
 </script>
 
-<a href={waitlistURL}>
+<a href={waitlistURL} target=”_blank”>
 	<button class="filled">
 		<img src="landing/logo_pure.svg" alt="Elfabet logo" class="button-image">
 		<p>Join waitlist</p>

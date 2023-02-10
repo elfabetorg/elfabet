@@ -16,7 +16,7 @@
 	<p>{bio}</p>
 	<div class="social-icons">
 		{#each socials as social}
-			<a href={social.link}> <img id={social.imagePath} class="icon" src={social.imagePath} alt="" /> </a>
+			<a href={social.link} target=”_blank”> <img id={social.imagePath} class="icon" src={social.imagePath} alt="" /> </a>
 		{/each}
 	</div>
 </div>
