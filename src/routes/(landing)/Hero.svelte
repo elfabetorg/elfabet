@@ -30,7 +30,7 @@ without losing your sanity
 		align-content: center;
 		align-items: center;
 		top: 24px;
-		bottom: 20px;
+		bottom: 32px;
 		height: calc(100vh - var(--nav-height));
 		width: 100vw;
 	}
