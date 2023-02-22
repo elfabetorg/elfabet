@@ -26,7 +26,6 @@
 					imagePath: "about/twitter.svg"
 				},
 			],
-			imagePath: "about/Abigail.png"
 		},
 		{
 			name: "Ariel Cheng",
@@ -49,7 +48,6 @@
 					imagePath: "about/twitter.svg"
 				}
 			],
-			imagePath: "about/Ariel.png"
 		},
 	];
 </script>

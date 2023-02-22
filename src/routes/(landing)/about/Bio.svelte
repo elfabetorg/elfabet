@@ -10,7 +10,6 @@
 </script>
 
 <div class="bio">
-	<img class="profile-image" src={imagePath} alt="An image of {name}, one of Elfabet's co-founders.">
 	<h2>{name}</h2>
 	<h3>{title}</h3>
 	<p>{bio}</p>

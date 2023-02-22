@@ -21,6 +21,7 @@
 		<a href="/about">About</a>
 		<a href="/contact">Contact</a>
 		<a href="https://ko-fi.com/elfabet#paypalModal" target=”_blank”>Support us!</a>
+		<a href="https://forms.gle/AP8UVAdvN11p6qPt6" target=”_blank”>Give us feedback</a>
 	</div>
 	<DeviceDetector showInDevice="desktop">
 		<div class="buttons-row">
