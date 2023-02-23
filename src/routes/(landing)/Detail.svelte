@@ -27,7 +27,7 @@
 					'Spending too much time clicking buttons, moving pieces around?', 'Tired of manually assigning submissions to team members, of manually mass sending rejections? Set up your workflow once — select who submissions go to first, then choose between a ranking or upvote system to decide what actions a submission has to go through to get passed up. We’ll auto-reject all other submissions according to your template and save you the effort, letting you get back to submitters sooner.'
 				],
 				[
-					'Help us make this better.', 'If you’re an editor seeing this, it would mean the world to us if you could take a few minutes out of your day and fill out this form detailing your process for sorting through submissions, so we can ensure we have specific features that allow everyone to more or less stick to their current processes— just vastly improved versions.'
+					'Help us make this better.', 'If you’re an editor seeing this, it would mean the world to us if you could take a few minutes out of your day and fill out <a href="https://forms.gle/rLQ4bEQ4gXX8B28A8">this form</a> detailing your process for sorting through submissions, so we can ensure we have specific features that allow everyone to more or less stick to their current processes— just vastly improved versions.'
 				]
 			],
 			imagePath: "landing/automation_i.svg"

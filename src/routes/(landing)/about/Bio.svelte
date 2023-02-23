@@ -12,7 +12,7 @@
 <div class="bio">
 	<h2>{name}</h2>
 	<h3>{title}</h3>
-	<p>{bio}</p>
+	<p>{@html bio}</p>
 	<div class="social-icons">
 		{#each socials as social}
 			<a href={social.link} target=”_blank”> <img id={social.imagePath} class="icon" src={social.imagePath} alt="A link to {name}'s {social.name} account." /> </a>

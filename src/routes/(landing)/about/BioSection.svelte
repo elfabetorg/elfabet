@@ -8,7 +8,7 @@
 		{
 			name: "Abigail Chang",
 			title: "Co-founder",
-			bio: "Abigail Chang is a writer and editor based in Taipei, Taiwan. Her work appears or is forthcoming in Fractured Lit, Half-Mystic, the Cortland Review, the Citron Review, the Shore, Gone Lawn, Parentheses Journal and elsewhere. In her spare time, she listens to Frank Ocean and drinks too many iced lattes. Find her at twitter @honeybutterball",
+			bio: "Abigail Chang is a writer and editor based in Taipei, Taiwan. Her work appears or is forthcoming in Fractured, Salamander, Moon City Review, Cortland Review, Citron Review, the Shore, Gone Lawn, and elsewhere. In her spare time, she enjoys listening to Frank Ocean and drinking too many iced lattes. Find her at twitter @Abigail or at <a href='https://abigailchang.carrd.co'>https://abigailchang.carrd.co</a>",
 			socials: [
 				{
 					name: "Gmail",
@@ -30,7 +30,7 @@
 		{
 			name: "Ariel Cheng",
 			title: "Co-founder",
-			bio: "Ariel Cheng is a developer and aspiring researcher who splits her time between  Taipei, Taiwan and Southborough, Massachusetts. She is fond of llamas, Google Scholar, Jung’s theory of cognitive functions, the AI Alignment problem and 3Blue1Brown. If you have a half-impossible idea or a pedantic inaccuracy to complain about, email her at ariel.kerry@gmail.com",
+			bio: "Ariel Cheng is a developer and aspiring researcher who splits her time between Taipei, Taiwan and Southborough, Massachusetts. She is fond of llamas, Jung’s theory of cognitive functions, the AI Alignment problem and 3Blue1Brown. Her writing has been recognized by the Scholastic Awards. If you would like to discuss paperclip maximizers or free will, email her at ariel.kerry@gmail.com",
 			socials: [
 				{
 					name: "Github",
