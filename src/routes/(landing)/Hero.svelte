@@ -31,7 +31,7 @@ without losing your sanity
 		align-items: center;
 		top: 24px;
 		bottom: 32px;
-		height: calc(100vh - var(--nav-height));
+		height: calc(100vh);
 		width: 100vw;
 	}
 	.container {

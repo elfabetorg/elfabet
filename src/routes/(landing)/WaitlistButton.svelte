@@ -26,5 +26,6 @@
 	p {
 		font-size: 13px;
 		line-height: 120%;
+		white-space: nowrap;
 	}
 </style>
