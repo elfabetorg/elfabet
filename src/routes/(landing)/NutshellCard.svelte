@@ -1,4 +1,5 @@
 <script>
+	import DeviceDetector from "svelte-device-detector";
 	import VanillaTilt from 'vanilla-tilt';
 
 	export let category;
@@ -10,13 +11,28 @@
 	}
 </script>
 
-<div class="card" use:tilt>
-	<img src={imagePath} alt="" />
-	<div class="text-container">
-		<h3>{category.toUpperCase()}</h3>
-		<h4>{content}</h4>
-	</div>
+<div class="nutshell-card-component">
+	<DeviceDetector showInDevice="desktop">
+		<div class="card" use:tilt>
+			<img src={imagePath} alt="" />
+			<div class="text-container">
+				<h3>{category.toUpperCase()}</h3>
+				<h4>{content}</h4>
+			</div>
+		</div>
+	</DeviceDetector>
+	
+	<DeviceDetector showInDevice="mobile">
+		<div class="card">
+			<img src={imagePath} alt="" />
+			<div class="text-container">
+				<h3>{category.toUpperCase()}</h3>
+				<h4>{content}</h4>
+			</div>
+		</div>
+	</DeviceDetector>
 </div>
+
 
 <style>
 	.card {

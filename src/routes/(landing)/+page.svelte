@@ -10,7 +10,7 @@
 	<Hero />
 	<Nutshell /> 
 	<Detail />
-	<!-- <AdditionalFeatures /> -->
+	<AdditionalFeatures />
 	<JoinWaitlist />
 </div>
 

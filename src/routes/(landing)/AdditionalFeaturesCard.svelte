@@ -1,5 +1,6 @@
 <script>
 	import VanillaTilt from "vanilla-tilt";
+	import DeviceDetector from "svelte-device-detector";
 
 	export let title;
 	export let description;
@@ -9,9 +10,19 @@
 	}
 </script>
 
-<div class="additional-features-card" use:tilt>
-	<h2>{title}</h2>
-	<p>{description}</p>
+<div class="additional-features-card-component">
+	<DeviceDetector showInDevice="desktop">
+		<div class="additional-features-card" use:tilt>
+			<h2>{title}</h2>
+			<p>{description}</p>
+		</div>
+	</DeviceDetector>
+	<DeviceDetector showInDevice="mobile">
+		<div class="additional-features-card">
+			<h2>{title}</h2>
+			<p>{description}</p>
+		</div>
+	</DeviceDetector>
 </div>
 
 <style>
@@ -23,6 +34,7 @@
 		color: black;
 		max-width: 320px;
 		border-radius: 16px;
+		height: 100%;
 	}
 	h2 {
 		font-size: 22px;

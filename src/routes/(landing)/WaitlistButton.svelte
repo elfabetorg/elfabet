@@ -28,7 +28,7 @@
 		line-height: 120%;
 		white-space: nowrap;
 	}
-	@media screen and (max-width:420px) {
+	@media screen and (max-width: 420px) {
 		p {
 			white-space: inherit;
 		}

@@ -37,7 +37,7 @@
 	<h2>Quality of life improvements designed to make editing & submitting a little easier.</h2>
 	<div class="cards">
 		<div class="column">
-				<h3>FOR EDITORS</h3>
+			<h3>FOR EDITORS</h3>
 			<div class="row">
 				{#each additionalFeaturesData_Editors as card}
 				<AdditionalFeaturesCard title={card.title} description={card.description}/>
@@ -62,6 +62,8 @@
 		text-align: center;
 		padding-top: 32px;
 		padding-bottom: 80px;
+		padding-left: 32px;
+		padding-right: 32px;
 	}
 	h1 {
 		font-size: 30px;
@@ -83,6 +85,7 @@
 	.row {
 		display: flex;
 		flex-direction: row;
+		margin-bottom: 32px;
 		gap: 32px;
 	}
 	.column {
@@ -95,5 +98,12 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+	}
+	@media screen and (max-width:420px) {
+		.row {
+			display: flex;
+			flex-direction: column;
+			gap: 32px;
+		}
 	}
 </style>
