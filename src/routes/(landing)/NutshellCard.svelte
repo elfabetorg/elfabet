@@ -21,7 +21,7 @@
 			</div>
 		</div>
 	</DeviceDetector>
-	
+
 	<DeviceDetector showInDevice="mobile">
 		<div class="card">
 			<img src={imagePath} alt="" />
@@ -39,7 +39,7 @@
 		max-width: 340px;
 		display: flex;
 		flex-direction: row;
-		padding: 24px 22px;
+		padding: 24px 0px;
 		border-radius: 8px;
 		gap: 16px;
 		background-color: white;
