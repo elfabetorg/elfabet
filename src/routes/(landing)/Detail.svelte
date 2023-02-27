@@ -11,7 +11,7 @@
 					'We’re not a big corporation.', 'We don’t want to drain your bank account. Elfabet is custom-made for the literary community and we know everyone’s always strapped for cash, which is why we’ll always be free (up to a point— server space is expensive, and we know just how many submissions some of you get!)'
 				],
 				[
-					'Support us through Patreon to gain extra perks, like additional storage.', 'Or, instead of paying us, spend that money on paying contributors and staff. The Patreon will be available upon Elfabet’s official launch and all money earned through it will go directly back into Elfabet. To support us, (Abigail and Ariel) directly — not Elfabet — feel free to donate to us through <a href="https://ko-fi.com/elfabet#paypalModal">our Ko-Fi.</a>'
+					'Support us through Patreon to gain extra perks, like additional storage.', 'Or, instead of paying us, spend that money on paying contributors and staff. The Patreon will be available upon Elfabet’s official launch and all money earned through it will go directly back into Elfabet. To support us, (Abigail and Ariel) directly — not Elfabet — feel free to donate to us through <a href="https://ko-fi.com/elfabet#paypalModal" target="_blank">our Ko-Fi.</a>'
 				],
 				[
 					'Oh, and we don’t take a cut out of submission fees and submitter donations.', 'None of that 5% + 99 cents stuff, wink wink. Except we’re forced to take a tiny little cut (just 2.7% of the total—don’t worry!), because we want to handle your payment information safely with Stripe.'
@@ -24,7 +24,7 @@
 			title: 'Focus on what matters.',
 			sections: [
 				[
-					'Spending too much time clicking buttons, moving pieces around?', 'Tired of manually assigning submissions to team members, of manually mass sending rejections? Set up your workflow once — select who submissions go to first, then choose between a ranking or upvote system to decide what actions a submission has to go through to get passed up. We’ll auto-reject all other submissions according to your template and save you the effort, letting you get back to submitters sooner.'
+					'Spending too much time clicking buttons, moving pieces around?', 'Tired of manually assigning submissions to team members, of manually mass sending rejections? Set up your workflow once - randomly assign pieces to editors and readers, choose between an upvote and ranking system, decide what actions a submission has to go through to get passed up. We’ll auto-reject all other submissions according to your template and save you the effort, letting you get back to submitters sooner.'
 				],
 				[
 					'Help us make this better.', 'If you’re an editor seeing this, it would mean the world to us if you could take a few minutes out of your day and fill out <a href="https://forms.gle/rLQ4bEQ4gXX8B28A8" target="_blank">this form</a> detailing your process for sorting through submissions, so we can ensure we have specific features that allow everyone to more or less stick to their current processes— just vastly improved versions.'
