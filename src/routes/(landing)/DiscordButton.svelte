@@ -2,7 +2,7 @@
 	let discordInviteURL = "https://discord.gg/9tMFWwDHcV";
 </script>
 
-<a href={discordInviteURL}>
+<a href={discordInviteURL} target="_blank">
 	<button class="outline">
 		<img src="landing/discord.svg" alt="Discord logo" class="button-image">
 		<p>Join Discord</p>
