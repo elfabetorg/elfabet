@@ -6,7 +6,7 @@
 <div id="contact">
 	<h1>Contact</h1>
 	<p>
-		We’re still in very early development and would love any and all of your comments, feedback, thoughts, ramblings, a laundry list of everything you hate about managing submissions. Seriously — we want to hear anything you have to tell us.
+		We’re still in very early development and would love any and all of your comments, feedback, thoughts, ramblings, even a laundry list of everything you hate about managing submissions. Seriously — we want to hear anything you have to tell us.
 		
 TO CONTACT, EITHER:
 ⭐ ️Email us at <a href="mailto:elfabet.contact@gmail.com">elfabet.contact@gmail.com</a>
