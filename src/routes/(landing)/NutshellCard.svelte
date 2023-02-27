@@ -39,7 +39,7 @@
 		max-width: 340px;
 		display: flex;
 		flex-direction: row;
-		padding: 24px 0px;
+		padding: 24px 16px;
 		border-radius: 8px;
 		gap: 16px;
 		background-color: white;

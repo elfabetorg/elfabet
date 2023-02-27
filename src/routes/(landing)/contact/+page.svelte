@@ -13,7 +13,7 @@ TO CONTACT, EITHER:
 ⭐ ️Shoot us a DM at @elfabetorg on <a href="https://twitter.com/elfabetorg" target=”_blank”>Twitter</a> or <a href="https://www.instagram.com/elfabetorg/" target=”_blank”>Instagram</a>
 ⭐️ Drop a message in our Discord
 
-Also feel free to send a message through an alligator friend. Arnold (our alligator mascot) loves to socialize, so we’ll probably receive your feedback very quickly.
+Alternatively, feel free to send a message through an alligator friend. Arnold (our alligator mascot) loves to socialize, so we’ll probably receive your feedback very quickly.
 	</p>
 	<!-- TODO make blobs work for mobile -->
 	<DeviceDetector showInDevice="desktop">
