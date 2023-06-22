@@ -36,6 +36,7 @@
     "test": "tests"
   },
   "dependencies": {
+    "firebase": "^9.22.2",
     "svelte-device-detector": "^0.2.2",
     "svelte-viewport-info": "^1.0.0",
     "vanilla-tilt": "^1.8.0"
