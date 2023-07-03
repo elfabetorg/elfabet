@@ -5,7 +5,6 @@
 	export let sections;
 	export let imagePath;
 	export let reverse;
-	// TODO hide illustrations if on mobile
 </script>
 
 <section class="detail-section">
