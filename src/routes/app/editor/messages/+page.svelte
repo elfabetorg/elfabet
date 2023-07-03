@@ -2,10 +2,10 @@
 
 </script>
 
-<div id="navbar">
-	Navigation bar
+<div id="messages-tab">
+	Messages tab!
 </div>
 
 <style>
-
+	
 </style>

@@ -26,7 +26,8 @@
 
 <div id="user-home">
 	{#if $user !== null}
-		This is {$user.displayName}'s Elfabet page.
+		<p>This is {$user.displayName}'s Elfabet page.</p>
+		<p>Submissions Tab!</p>
 		<button on:click={handleSignOut}>Sign out</button>
 	{:else}
 		You're not signed in. You CANNOT ACCESS THIS PAGE MUAHAHAHAAHAH.

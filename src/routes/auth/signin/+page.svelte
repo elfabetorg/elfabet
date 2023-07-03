@@ -20,7 +20,8 @@
 				const user = userCredential.user;
 				console.log(user);
 				console.log('Signed in!');
-        goto('/app');
+				// TODO: dynamically check if user is writer or editor
+        goto('/app/editor/');
 			})
 			.catch((error) => {
 				const errorCode = error.code;
