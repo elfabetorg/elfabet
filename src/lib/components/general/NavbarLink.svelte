@@ -11,8 +11,10 @@
 		// Change current tab to purple
 		if (currentTab === `${text}-tab`) {
 			linkColor = "var(--accent)";
+			textWeight = "700";
 		} else {
 			linkColor = "var(--black)";
+			textWeight = "400";
 		}
 	}
 </script>

@@ -3,8 +3,6 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<!-- TODO import the bold version. for some reason not working -->
-		<link href='https://fonts.googleapis.com/css?family=Lato:400,500,600,700' rel='stylesheet' type='text/css'>
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
 	</head>
@@ -13,6 +11,31 @@
 	</body>
 
 	<style>
+		/* Fonts */
+			@font-face {
+				font-family: 'Lato';
+				font-style: normal;
+				font-weight: 400;
+				src: url('%sveltekit.assets%/fonts/lato/Lato-Regular.ttf');
+			}
+			@font-face {
+				font-family: 'Lato';
+				font-style: italic;
+				font-weight: 400;
+				src: url('%sveltekit.assets%/fonts/lato/Lato-Italic.ttf');
+			}
+			@font-face {
+				font-family: 'Lato';
+				font-style: normal;
+				font-weight: 500;
+				src: url('%sveltekit.assets%/fonts/lato/Lato-Medium.ttf');
+			}
+			@font-face {
+				font-family: 'Lato';
+				font-style: italic;
+				font-weight: 500;
+				src: url('%sveltekit.assets%/fonts/lato/Lato-MediumItalic.ttf');
+			}
 		/* Whole document styling */
 		html {
 			font-family: 'Lato';

@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { goto } from '$app/navigation';
 
 	onMount(async() => {});
 
@@ -12,9 +13,9 @@
 			.then((userCredential) => {
 				// Signed in 
 				const user = userCredential.user;
-				// ...
 				console.log(user);
 				console.log('Signed in!');
+				goto('/app/editor/');
 			})
 			.catch((error) => {
 				const errorCode = error.code;

@@ -1,5 +1,7 @@
 <script>
 	import NavbarLink from "./NavbarLink.svelte";
+  import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
 	const navbarData = [
 		{
@@ -31,6 +33,14 @@
 
 	var currentTab = "Submissions-tab";
 
+	onMount(async () => {
+		// Set current tab according to URL path name
+		const path = $page.url.pathname;
+		const navPaths = navbarData.map((data) => { return data.navPath });
+		const tabIndex = navPaths.indexOf(path);
+		currentTab = `${navbarData[tabIndex].text}-tab`;
+	});
+
 	const setCurrentTabOnClick = (navlinkName) => {
 		currentTab = `${navlinkName}-tab`;
 	};
@@ -39,8 +49,8 @@
 
 <div id="navbar">
 	<div id="logo-header">
-		<h1>Elfabet</h1>
 		<img src="/landing/logo.svg" alt="Elfabet logo" class="button-image">
+		<h1>Elfabet</h1>
 	</div>
 	<!-- TODO Search component -->
 	{#each navbarData as data} 
@@ -57,9 +67,8 @@
 	h1 {
 		color: var(--accent);
 		font-size: 24px;
-		font-weight: 600;
-		line-height: 38px;
-		letter-spacing: 0.24px;
+		font-weight: 500;
+		line-height: 36px;
 	}
 	#logo-header {
 		display: flex;
