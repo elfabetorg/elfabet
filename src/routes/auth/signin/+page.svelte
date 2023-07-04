@@ -27,6 +27,7 @@
 				const errorCode = error.code;
 				const errorMessage = error.message;
 				console.log(errorMessage);
+				// TODO display this error to user
 			});
 	};
 
