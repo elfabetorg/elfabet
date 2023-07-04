@@ -5,32 +5,33 @@
 
 	const navbarData = [
 		{
-			imagePath: "/app/navbar/submissions.svg",
+			imagePath: "/app/navbar/submissions",
 			text: "Submissions",
 			navPath: "/app/editor/"
 		},
 		{
-			imagePath: "/app/navbar/calls.svg",
+			imagePath: "/app/navbar/calls",
 			text: "Calls",
 			navPath: "/app/editor/calls"
 		},
 		{
-			imagePath: "/app/navbar/messages.svg",
+			imagePath: "/app/navbar/messages",
 			text: "Messages",
 			navPath: "/app/editor/messages"
 		},
 		{
-			imagePath: "/app/navbar/controlcenter.svg",
+			imagePath: "/app/navbar/controlcenter",
 			text: "Control Center",
 			navPath: "/app/editor/controlcenter"
 		},
 		{
-			imagePath: "/app/navbar/settings.svg",
+			imagePath: "/app/navbar/settings",
 			text: "Settings",
 			navPath: "/app/editor/settings"
 		},
 	];
 
+	let innerHeight = 0
 	var currentTab = "Submissions-tab";
 
 	onMount(async () => {
@@ -45,7 +46,10 @@
 		currentTab = `${navlinkName}-tab`;
 	};
 
+	$: console.log(innerHeight)
 </script>
+
+<svelte:window bind:innerHeight/>
 
 <div id="navbar">
 	<div id="logo-header">
@@ -53,17 +57,33 @@
 		<h1>Elfabet</h1>
 	</div>
 	<!-- TODO Search component -->
-	{#each navbarData as data} 
-		<div class="navbarlink-container" on:click={() => setCurrentTabOnClick(data.text)}>
+	<div id="tabs">
+		{#each navbarData as data} 
+		<div class="tab" on:click={() => setCurrentTabOnClick(data.text)}>
 			<NavbarLink imagePath={data.imagePath} text={data.text} navPath={data.navPath} {currentTab}/>
 		</div>
 	{/each}
+	</div>
 </div>
 
-<!-- TODO: import semibold version of Lato -->
-<!-- TODO: make icons change color -->
-
 <style>
+	#navbar {
+		position: -webkit-sticky;
+  	position: sticky;
+		padding: 48px 48px 60px 24px;
+		height: calc(100% - 60px - 48px);
+		display: flex;
+		flex-direction: column;
+		align-items: left;
+		gap: 24px;
+		border: 1px solid var(--light-gray);
+		background: var(--primary-white);
+	}
+	#tabs {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
 	h1 {
 		color: var(--accent);
 		font-size: 24px;
@@ -73,6 +93,7 @@
 	#logo-header {
 		display: flex;
 		flex-direction: row;
+		align-items: left;
 		gap: 16px;
 	}
 </style>

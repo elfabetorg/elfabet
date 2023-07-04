@@ -2,8 +2,6 @@
 
 	import Bio from "./Bio.svelte";
 
-	// TODO make gmail icon links work
-
 	const bioData = [
 		{
 			name: "Abigail Chang",

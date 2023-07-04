@@ -27,6 +27,7 @@
 
 <div id="signup-form">
 	<h3>Sign up</h3>
+	<!-- TODO Add fields for name and password, function for updating user info -->
 	<input id="email" type="text" bind:value={email}>
 	<input id="password" type="text" bind:value={password}>
 	<button on:click={signUp}>Sign up</button>
