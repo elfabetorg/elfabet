@@ -1,5 +1,6 @@
 <script>
 	import NavbarLink from "./NavbarLink.svelte";
+	import Profile from "./Profile.svelte";
   import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 
@@ -45,39 +46,49 @@
 	const setCurrentTabOnClick = (navlinkName) => {
 		currentTab = `${navlinkName}-tab`;
 	};
-
-	$: console.log(innerHeight)
 </script>
 
 <svelte:window bind:innerHeight/>
 
 <div id="navbar">
-	<div id="logo-header">
-		<img src="/landing/logo.svg" alt="Elfabet logo" class="button-image">
-		<h1>Elfabet</h1>
-	</div>
-	<!-- TODO Search component -->
-	<div id="tabs">
-		{#each navbarData as data} 
-		<div class="tab" on:click={() => setCurrentTabOnClick(data.text)}>
-			<NavbarLink imagePath={data.imagePath} text={data.text} navPath={data.navPath} {currentTab}/>
+	<div class="container">
+		<div id="logo-header">
+			<img src="/landing/logo.svg" alt="Elfabet logo" class="button-image">
+			<h1>Elfabet</h1>
 		</div>
-	{/each}
+		<!-- TODO Search component -->
+		<div id="tabs">
+			{#each navbarData as data} 
+			<div class="tab" on:click={() => setCurrentTabOnClick(data.text)}>
+				<NavbarLink imagePath={data.imagePath} text={data.text} navPath={data.navPath} {currentTab}/>
+			</div>
+			{/each}
+		</div>
 	</div>
+	<div class="spacer"></div>
+	<Profile />
 </div>
 
 <style>
 	#navbar {
 		position: -webkit-sticky;
   	position: sticky;
-		padding: 48px 48px 60px 24px;
-		height: calc(100% - 60px - 48px);
+		padding: 56px 24px 24px 24px;
+		height: calc(100% - 56px - 24px);
+		display: flex;
+		flex-direction: column;
+		align-items: left;
+		border: 1px solid var(--light-gray);
+		background: var(--primary-white);
+	}
+	.container {
 		display: flex;
 		flex-direction: column;
 		align-items: left;
 		gap: 24px;
-		border: 1px solid var(--light-gray);
-		background: var(--primary-white);
+	}
+	.spacer {
+		height: 100%;
 	}
 	#tabs {
 		display: flex;
