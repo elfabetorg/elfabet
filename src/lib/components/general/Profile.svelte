@@ -17,12 +17,15 @@
 </script> 
 
 <div id="profile">
-	<img id="profile-image" src="https://c1.wallpaperflare.com/preview/826/148/972/brown-head-wool-alpaca.jpg" alt="An image of a fat llama"/>
+	<!-- TODO: replace this dummy image w actual profile image -->
+	<img id="profile-image" src="https://c1.wallpaperflare.com/preview/826/148/972/brown-head-wool-alpaca.jpg" alt="Profile image"/>
 	<div class="text-container">
 		<h3>{$user.displayName}</h3>
 		<button on:click={handleSignOut}>Sign out</button>
 	</div>
-	<img id="ellipses-icon" src="/app/navbar/ellipses.svg" alt="Ellipses symbol">
+	<div class="tooltip">
+		<img id="ellipses-icon" src="/app/navbar/ellipses.svg" alt="Ellipses symbol">
+	</div>
 </div>
 
 <style>

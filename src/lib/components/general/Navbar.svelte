@@ -73,8 +73,8 @@
 	#navbar {
 		position: -webkit-sticky;
   	position: sticky;
-		padding: 56px 24px 24px 24px;
-		height: calc(100% - 56px - 24px);
+		padding: 48px 24px 24px 24px;
+		height: calc(100% - 48px - 24px);
 		display: flex;
 		flex-direction: column;
 		align-items: left;
