@@ -32,8 +32,6 @@
 			<p>Yarg Farg Marg. (This is to test whether the nav bar is sticky. YAY IT IS!!!)</p>
 		{/each}
 		<button on:click={handleSignOut}>Sign out</button>
-	{:else}
-		You're not signed in. You CANNOT ACCESS THIS PAGE MUAHAHAHAAHAH.
 	{/if}
 </div>
 
