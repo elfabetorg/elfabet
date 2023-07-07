@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
-	import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-	import { firebaseAuth } from "$lib/firebase";
+	import { createUserWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+	import { firebaseAuth, googleProvider } from "$lib/firebase";
 	import { user } from "$lib/authStore";
 
 	onMount(async() => {});
@@ -13,9 +13,25 @@
 	let lastName;
 	let accountType;
 
-	const signUp = () => {
-		console.log('sign up')
-		createUserWithEmailAndPassword(firebaseAuth, email, password)
+	const signUp = (method) => {
+		if (method === 'google') {
+			signInWithPopup(firebaseAuth, googleProvider)
+			.then((userCredential) => {
+				// Signed in 
+				const user = userCredential.user;
+				console.log(user);
+				console.log('Signed in!');
+				// TODO: dynamically check if user is writer or editor
+        goto('/app/editor/');
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				console.log(errorMessage);
+				// TODO display this error to user
+			});
+		} else if (method === 'email') {
+			createUserWithEmailAndPassword(firebaseAuth, email, password)
 			.then((userCredential) => {
 				console.log('User signed up!');
 				addNameToProfile(() => {
@@ -32,6 +48,7 @@
 				console.log(errorMessage);
 				// TODO display this error to user
 			});
+		}
 	};
 
 	const addAccountTypeToProfile = () => {
@@ -63,7 +80,9 @@
 		<option value="editor">Editor account</option>
 		<option value="writer">Writer account</option>
 	</select>
-	<button on:click={signUp}>Sign up</button>
+	<button on:click={() => signUp('email')}>Sign up</button>
+	<div class="divider"></div>
+	<button on:click={() => signUp('google')}>Sign up with google</button>
 </div>
 
 <style>

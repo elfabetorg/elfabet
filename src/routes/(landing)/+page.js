@@ -6,7 +6,10 @@ import { redirect } from '@sveltejs/kit';
 // TODO: determine if user is writer or editor acc
 
 export const load = async () => {
-	if (get(user) === null) {
+	const authState = get(user);
+	console.log(authState);
+	console.log(user);
+	if (authState !== null) {
 		throw redirect(302, '/app/editor');
 	}
   return {};

@@ -21,7 +21,6 @@ import { onAuthStateChanged } from "firebase/auth";
     unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
       set(user);
     });
-
     return () => unsubscribe();
   });
 
