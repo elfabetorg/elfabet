@@ -22,7 +22,7 @@
 		{#await data}
 			<p>Loading data...</p>
 		{:then}
-			{data.stuff[0].sample}
+			{data.stuff.sample}
 		{/await}
 	{/if}
 </div>
