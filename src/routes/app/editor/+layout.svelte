@@ -32,7 +32,7 @@
 	#app {
 		display: flex;
 		flex-direction: row;
-		gap: 32px;
+		gap: 0px;
 		height: 100vh;
 		overflow: hidden;
 	}

@@ -7,3 +7,4 @@ const client = new MongoClient(DB_URI);
 await client.connect();
 
 export const usersDB = client.db('user_data');
+export const opencallsDB = client.db('opencalls_data')

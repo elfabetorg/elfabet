@@ -33,7 +33,7 @@
 	];
 
 	let innerHeight = 0
-	var currentTab = "Submissions-tab";
+	let currentTab = "Submissions-tab";
 
 	onMount(async () => {
 		setCurrentTabFromURL();
@@ -50,6 +50,9 @@
 	const setCurrentTabOnClick = (navlinkName) => {
 		currentTab = `${navlinkName}-tab`;
 	};
+
+	$: $page.url.pathname, setCurrentTabFromURL();
+
 </script>
 
 <svelte:window bind:innerHeight/>

@@ -4,6 +4,10 @@ import { json } from "@sveltejs/kit";
 export async function GET({ url }) {
   // TODO: fix this
   const userID = url.searchParams.get('userid');
-  const userInfo = await usersDB.collection('users').findOne({ _id: userID });
+  const users = usersDB.collection('users');
+  const orgs = usersDB.collection('orgs');
+  const userInfo = await users.findOne({ _id: userID });
+  const userOrg = await orgs.findOne({ _id: userInfo.org_id })
+  userInfo.org = userOrg; // add org info object to userInfo
   return new json(userInfo);
 }

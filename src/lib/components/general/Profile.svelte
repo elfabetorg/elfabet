@@ -5,7 +5,7 @@
 	import { goto } from '$app/navigation'
 	import { onMount } from 'svelte';
 
-	let accountType = null;
+	let accountType = "Fetching...";
 	let expanded = false;
 
 	let clientHeight;
