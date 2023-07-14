@@ -136,5 +136,6 @@
 		font-weight: 400;
 		line-height: 16px;
 		margin: 0px;
+		white-space: nowrap;
 	}
 </style>
