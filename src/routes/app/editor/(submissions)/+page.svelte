@@ -15,13 +15,8 @@
 
 <div id="user-home">
 	<!-- TODO extract logic to AuthCheck component -->
-	{#if $user !== null}
-		<p>This is {$user.displayName}'s Elfabet page.</p>
-		<p>Submissions Tab!</p>
-		{#if data !== null}
-			{data.sample}
-		{/if}
-	{/if}
+	<p>This is {$user.displayName}'s Elfabet page.</p>
+	<p>Submissions Tab!</p>
 </div>
 
 <style>

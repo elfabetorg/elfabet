@@ -14,7 +14,6 @@
 		if (currentTab === `${text}-tab`) {
 			linkColor = "var(--accent)";
 			textWeight = "700";
-			console.log(imagePath);
 			currentImagePath = `${imagePath}-active.svg`; 
 		} else {
 			linkColor = "var(--black)";

@@ -8,7 +8,7 @@
 		{
 			imagePath: "/app/navbar/submissions",
 			text: "Submissions",
-			navPath: "/app/editor/"
+			navPath: "/app/editor"
 		},
 		{
 			imagePath: "/app/navbar/calls",
@@ -36,12 +36,16 @@
 	var currentTab = "Submissions-tab";
 
 	onMount(async () => {
+		setCurrentTabFromURL();
+	});
+
+	const setCurrentTabFromURL = () => {
 		// Set current tab according to URL path name
 		const path = $page.url.pathname;
-		const navPaths = navbarData.map((data) => { return data.navPath });
+		const navPaths = navbarData.map((data) => data.navPath);
 		const tabIndex = navPaths.indexOf(path);
 		currentTab = `${navbarData[tabIndex].text}-tab`;
-	});
+	}
 
 	const setCurrentTabOnClick = (navlinkName) => {
 		currentTab = `${navlinkName}-tab`;

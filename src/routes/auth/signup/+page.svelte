@@ -14,6 +14,8 @@
 	let accountType;
 
 	const signUp = (method) => {
+		// TODO: ariel modularize this
+		// TODO: ariel connect this to mongodb
 		if (method === 'google') {
 			signInWithPopup(firebaseAuth, googleProvider)
 			.then((userCredential) => {
