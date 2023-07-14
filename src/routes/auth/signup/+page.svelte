@@ -20,9 +20,12 @@
 				// Signed in 
 				const user = userCredential.user;
 				console.log(user);
-				console.log('Signed in!');
-				// TODO: dynamically check if user is writer or editor
-        goto('/app/editor/');
+				console.log('Signed in (after signup)!');
+				if (accountType === 'writer') {
+					goto('/app/writer/');
+				} else if (accountType === 'editor') {
+					goto('/app/editor/');
+				}
 			})
 			.catch((error) => {
 				const errorCode = error.code;

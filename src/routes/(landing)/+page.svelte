@@ -4,6 +4,7 @@
 	import Detail from "./Detail.svelte";
 	import AdditionalFeatures from "./AdditionalFeatures.svelte";
 	import JoinWaitlist from "./JoinWaitlist.svelte";
+
 </script>
 
 <div id="landing-page">

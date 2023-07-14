@@ -12,39 +12,57 @@
 	var email;
 	var password;
 
+	const redirectToApp = async (user) => {
+		const userID = user.uid;
+		console.log(userID)
+		const url = `/api/getUserInfo?userid=${userID}`;
+		const userData = await fetch(url).then((res) => res.json());
+		console.log(userData);
+		if (userData.type === 'writer') {
+			goto('/app/writer');
+		} else if (userData.type === 'editor') {
+			goto('/app/editor');
+		}
+	}
+
+	const handleSignInWithGoogle = () => {
+		signInWithPopup(firebaseAuth, googleProvider)
+			.then((userCredential) => {
+				// Signed in 
+				const user = userCredential.user;
+				console.log(user);
+				console.log('Signed in!');
+				redirectToApp(user);
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				console.log(errorMessage);
+				// TODO display this error to user & extract this to a function
+			});
+	}
+
+	const handleSignInWithEmail = () => {
+		signInWithEmailAndPassword(firebaseAuth, email, password)
+			.then((userCredential) => {
+				// Signed in 
+				const user = userCredential.user;
+				console.log('Signed in!');
+				redirectToApp(user);
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				console.log(errorMessage);
+				// TODO display this error to user & extract this to a function
+			});
+	}
+
 	const handleSignIn = (method) => {
 		if (method === 'google') {
-			signInWithPopup(firebaseAuth, googleProvider)
-			.then((userCredential) => {
-				// Signed in 
-				const user = userCredential.user;
-				console.log(user);
-				console.log('Signed in!');
-				// TODO: dynamically check if user is writer or editor
-        goto('/app/editor/');
-			})
-			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				console.log(errorMessage);
-				// TODO display this error to user
-			});
+			handleSignInWithGoogle();
 		} else if (method === 'email') { 
-			signInWithEmailAndPassword(firebaseAuth, email, password)
-			.then((userCredential) => {
-				// Signed in 
-				const user = userCredential.user;
-				console.log(user);
-				console.log('Signed in!');
-				// TODO: dynamically check if user is writer or editor
-        goto('/app/editor/');
-			})
-			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-				console.log(errorMessage);
-				// TODO display this error to user
-			});
+			handleSignInWithEmail();
 		}
 	};
 

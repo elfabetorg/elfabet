@@ -5,7 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 
 /**
  * @returns a store with the current firebase user
- */
+ */ 
  function userStore() {
   let unsubscribe;
 
@@ -19,6 +19,7 @@ import { onAuthStateChanged } from "firebase/auth";
 
   const { subscribe } = writable(firebaseAuth?.currentUser ?? null, (set) => {
     unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
+      console.log('logging in!')
       set(user);
     });
     return () => unsubscribe();

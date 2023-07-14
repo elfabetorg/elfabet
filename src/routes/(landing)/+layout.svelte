@@ -1,6 +1,29 @@
 <script>
 	import Nav from "./Nav.svelte";
 	import Footer from "./Footer.svelte";
+	import { user } from '$lib/authStore';
+	import { goto } from '$app/navigation'
+
+	$: {
+		// Move this into onMount and run after user signed in 
+		// Redirect to app if user is signed in
+		if ($user !== null) {
+			const userID = $user.uid;
+			const url = `/api/getUserInfo?userid=${userID}`;
+			fetch(url)
+				.then((res) => {
+					res.json().then((jsonData) => {
+						const accountType = jsonData.type;
+						console.log(accountType)
+						if (accountType === 'writer') {
+							goto('/app/writer');
+						} else if (accountType === 'editor') {
+							goto('/app/editor');
+						}
+					})
+				});
+		}
+	}
 </script>
 
 <head>
@@ -12,9 +35,13 @@
 </head>
 
 <div id="landing-page">
-	<Nav />
-	<slot></slot>
-	<Footer />
+	{#if $user === null}
+		Loading...
+	{:else}
+		<Nav />
+		<slot></slot>
+		<Footer />
+	{/if}
 </div>
 
 <style>

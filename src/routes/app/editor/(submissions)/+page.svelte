@@ -3,15 +3,14 @@
 	import { user } from "$lib/authStore";
 	import { page } from '$app/stores';
 
-	export let data;
+	let data = null;
 
-	onMount(() => {
+	onMount(async () => {
+		const userID = $user.uid;
+		const url = `/api/getUserInfo?userid=${userID}`;
+		data = await fetch(url).then((res) => res.json());
 	});
 
-	$: {
-		console.log('weee')
-		console.log(data.stuff);
-	};
 </script>
 
 <div id="user-home">
@@ -19,11 +18,9 @@
 	{#if $user !== null}
 		<p>This is {$user.displayName}'s Elfabet page.</p>
 		<p>Submissions Tab!</p>
-		{#await data}
-			<p>Loading data...</p>
-		{:then}
-			{data.stuff.sample}
-		{/await}
+		{#if data !== null}
+			{data.sample}
+		{/if}
 	{/if}
 </div>
 
