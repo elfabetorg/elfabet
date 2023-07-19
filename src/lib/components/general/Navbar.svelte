@@ -58,7 +58,7 @@
 <svelte:window bind:innerHeight/>
 
 <div id="navbar">
-	<div class="container">
+	<div class="container prevent-select">
 		<div id="logo-header">
 			<img src="/landing/logo.svg" alt="Elfabet logo" class="button-image">
 			<h1>Elfabet</h1>

@@ -1,10 +1,14 @@
 <script>
 	import Search from "$lib/components/general/Search.svelte";
+	import Table from "$lib/components/general/Table.svelte";
+
+	export let callTabs = ["Active Calls", "Inactive Calls", "Unlisted Calls"];
+
 </script>
 
 <div id="calls-tab">
 	<Search type="full" />
-	<p>Calls tab</p>
+	<Table tabs={callTabs}/>
 </div>
 
 <style>

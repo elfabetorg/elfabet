@@ -50,7 +50,7 @@
 	
 </script> 
 
-<div id="profile" bind:clientHeight>
+<div id="profile" class="prevent-select" bind:clientHeight>
 	<!-- TODO: replace this dummy image w actual profile image -->
 	<img id="profile-image" src="https://c1.wallpaperflare.com/preview/826/148/972/brown-head-wool-alpaca.jpg" alt="Profile image"/>
 	<div class="text-container">

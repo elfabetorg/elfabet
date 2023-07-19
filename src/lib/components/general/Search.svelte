@@ -2,6 +2,8 @@
 
 	export let type;
 
+	// TODO: refactor this and just USE CSS CLASSES YOU IDIOT
+
 	// Logic state
 	let text;
 	let filterActive = false;
@@ -9,11 +11,11 @@
 
 	// Visual state
 	let borderColor = "var(--gray)";
-	let filterColor = "var(--dark-gray)";
+	let filterColor = "var(--gray)";
 	let filterBgColor = "none";
 
 	const handleFocus = () => { borderColor = "var(--accent)" };
-	const handleBlur = () => { borderColor = "var(--dark-gray)" };
+	const handleBlur = () => { borderColor = "var(--gray)" };
 
 	const handleFilterState = () => { if (filterActive) { filterColor = "var(--accent)"; filterBgColor = "var(--accent-05)"; } else { filterColor = "var(--dark-gray)"; filterBgColor = "var(--primary-white)" } };
 	const toggleFilterState = () => { filterActive = !filterActive; };
@@ -31,7 +33,7 @@
 					<path fill-rule="evenodd" clip-rule="evenodd" d="M10.6289 10.6289C10.8892 10.3685 11.3113 10.3685 11.5717 10.6289L14.4717 13.5289C14.732 13.7892 14.732 14.2113 14.4717 14.4717C14.2113 14.732 13.7892 14.732 13.5289 14.4717L10.6289 11.5717C10.3685 11.3113 10.3685 10.8892 10.6289 10.6289Z" fill="{borderColor}"/>
 				</svg>
 			</div>		
-			<input on:focus={handleFocus} on:blur={handleBlur} class="full-search" type="text" bind:value={text} placeholder="Find a submission...">
+			<input on:focus={handleFocus} on:blur={handleBlur} class="full-search prevent-select" type="text" bind:value={text} placeholder="Find a submission...">
 			<svg id="filter-icon" on:click={toggleFilterState} style="background-color: {filterBgColor}" fill="{filterColor}" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 				<path d="M21 20H14M10 20H3M21 12L12 12M8 12H3M21 4H16M12 4H3M14 23V17M8 15V9M16 7V1" stroke="{filterColor}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 			</svg>
@@ -67,10 +69,6 @@
 	}
 	input.full-search:focus {
 		outline: none;
-	}
-	#abcd {
-		background: gray;
-		width: 100%;
 	}
 	svg#search-icon {
 		padding-top: 4px;
