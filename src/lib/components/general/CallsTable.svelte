@@ -113,10 +113,10 @@
 		font-weight: bold
 	}
 	tr {
-		width: 100%;
 		line-height: 40px;
 	}
 	td {
 		padding-left: 12px;
+		width: 100px;
 	}
 </style>
