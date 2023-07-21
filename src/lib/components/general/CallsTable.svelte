@@ -9,7 +9,7 @@
 	export let searchText;
 
 	let selectedTabIndex = 0;
-	let rowLimit = '20'; // TODO: make this adjustable on the UI
+	let rowLimit = '20';
 	let tabStatuses = ['active', 'inactive', 'unlisted']
 
 	const handleSelectTab = (tab) => { selectedTabIndex = tabs.indexOf(tab) };
@@ -31,7 +31,7 @@
 
 	const fetchCallsAfterSearch = async (searchText) => {
 		// TODO: figure out how to sanitize input (avoid special character bug)
-		const url = `/api/calls/searchCalls/?status=${tabStatuses[selectedTabIndex]}&limit=${rowLimit}&searchText=${searchText}`;
+		const url = `/api/calls/searchCalls/?status=${tabStatuses[selectedTabIndex]}&limit=${rowLimit}&searchText=${escape(searchText)}`;
 		const fetchedData = await fetch(url).then((res) => res.json());
 		rowData = fetchedData;
 	};
