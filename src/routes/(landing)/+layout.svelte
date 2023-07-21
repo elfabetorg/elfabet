@@ -14,7 +14,6 @@
 				.then((res) => {
 					res.json().then((jsonData) => {
 						const accountType = jsonData.type;
-						console.log(accountType)
 						if (accountType === 'writer') {
 							goto('/app/writer');
 						} else if (accountType === 'editor') {
@@ -36,11 +35,11 @@
 
 <div id="landing-page">
 	{#if $user === null}
-		Loading...
-	{:else}
 		<Nav />
 		<slot></slot>
 		<Footer />
+	{:else}
+		Loading...
 	{/if}
 </div>
 

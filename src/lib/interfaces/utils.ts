@@ -2,6 +2,7 @@
 
 export interface Call {
 	_id: string;
+	orgID: string;
 	title: string;
 	status: CallStatus;
 	startsOn: Date;
@@ -22,7 +23,8 @@ export interface Call {
 
 export enum CallStatus {
 	active = "active",
-	inactive = "inactive"
+	inactive = "inactive",
+	unlisted = "unlisted"
 }
 
 export interface EndsOn {
@@ -95,9 +97,10 @@ export enum SubmissionQuestionType {
 }
 
 
-export let calls : Call[] = [
+export const calls : Call[] = [
 	{
 		_id: "1",
+		orgID: "elfabetorg",
 		title: "Poetry - August 2023",
 		status: CallStatus.active,
 		startsOn: new Date(),
@@ -152,6 +155,7 @@ export let calls : Call[] = [
 	},
 	{
 		_id: "2",
+		orgID: "elfabetorg",
 		title: "Dead Cat Poetry Contest",
 		status: CallStatus.active,
 		startsOn: new Date(),
