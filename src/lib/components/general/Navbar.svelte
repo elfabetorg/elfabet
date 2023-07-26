@@ -51,7 +51,7 @@
 		currentTab = `${navlinkName}-tab`;
 	};
 
-	$: $page.url.pathname, setCurrentTabFromURL();
+	$: $page.path, setCurrentTabFromURL();
 
 </script>
 
@@ -63,7 +63,6 @@
 			<img src="/landing/logo.svg" alt="Elfabet logo" class="button-image">
 			<h1>Elfabet</h1>
 		</div>
-		<!-- TODO Search component -->
 		<div id="tabs">
 			{#each navbarData as data} 
 			<div class="tab" on:click={() => setCurrentTabOnClick(data.text)}>
@@ -80,7 +79,7 @@
 	#navbar {
 		position: -webkit-sticky;
   	position: sticky;
-		padding: 48px 24px 24px 24px;
+		padding: 32px 24px 24px 24px;
 		height: calc(100% - 48px - 24px);
 		display: flex;
 		flex-direction: column;

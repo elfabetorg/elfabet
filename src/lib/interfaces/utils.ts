@@ -17,7 +17,7 @@ export interface Call {
 	hasRequirements: boolean;
 	requirements?: Requirement[];
 	form: SubmissionForm;
-	currency: string; // TODO: cry make this an enum
+	currency: string; // TODO: *cry* make this an enum
 	emails?: EmailTemplate[]
 }
 
@@ -96,6 +96,7 @@ export enum SubmissionQuestionType {
 	// TODO payment and address
 }
 
+// NOTE: fix this dummy data?
 
 export const calls : Call[] = [
 	{
@@ -108,8 +109,8 @@ export const calls : Call[] = [
 			type: CallEndsOnType.date,
 			date: new Date("09-01-2024"),
 		},
-		workflowID: "asd0221321asd", // TODO this later
-		submissionIDs: ["akdjhasd"], // TODO this later
+		workflowID: "asd0221321asd", 
+		submissionIDs: ["akdjhasd"], 
 		hasMaxCapacity: true,
 		capacity: 20,
 		hasSubmissionFee: true,
@@ -162,8 +163,8 @@ export const calls : Call[] = [
 		endsOn: {
 			type: CallEndsOnType.quota,
 		},
-		workflowID: "asd0221321asd", // TODO this later
-		submissionIDs: ["akdjhasd", "qlaksduas", "aldaisupd", "akdjhslkd"], // TODO this later
+		workflowID: "asd0221321asd", 
+		submissionIDs: ["akdjhasd", "qlaksduas", "aldaisupd", "akdjhslkd"], 
 		hasMaxCapacity: true,
 		capacity: 5,
 		hasSubmissionFee: true,

@@ -1,6 +1,5 @@
 <script>
 	import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-	import { initializeApp } from 'firebase/app';
   import { firebaseAuth, googleProvider } from "$lib/firebase";
 	import { onMount } from 'svelte';
   import { user } from "$lib/authStore";
@@ -14,10 +13,8 @@
 
 	const redirectToApp = async (user) => {
 		const userID = user.uid;
-		console.log(userID)
 		const url = `/api/getUserInfo?userid=${userID}`;
 		const userData = await fetch(url).then((res) => res.json());
-		console.log(userData);
 		if (userData.type === 'writer') {
 			goto('/app/writer');
 		} else if (userData.type === 'editor') {
@@ -25,14 +22,23 @@
 		}
 	}
 
+	const serverSignIn = async (idToken) => {
+		const serverSignInRes = await fetch('/api/auth/signin', {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({ idToken })
+		})
+	}
+
 	const handleSignInWithGoogle = () => {
 		signInWithPopup(firebaseAuth, googleProvider)
-			.then((userCredential) => {
+			.then(async (userCredential) => {
 				// Signed in 
 				const user = userCredential.user;
-				console.log(user);
-				console.log('Signed in!');
-				redirectToApp(user);
+				const idToken = await user.getIdToken();
+				serverSignIn(idToken).then(() => redirectToApp(user));
 			})
 			.catch((error) => {
 				const errorCode = error.code;
@@ -47,7 +53,6 @@
 			.then((userCredential) => {
 				// Signed in 
 				const user = userCredential.user;
-				console.log('Signed in!');
 				redirectToApp(user);
 			})
 			.catch((error) => {

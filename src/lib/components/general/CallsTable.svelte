@@ -22,7 +22,6 @@
 				'Content-Type': 'application/json'
 			}
 		})
-		// console.log(response)
 	};
 
 	const fetchCallsAfterTabOrLimitChange = async () => {
@@ -30,7 +29,6 @@
 	};
 
 	const fetchCallsAfterSearch = async (searchText) => {
-		// TODO: figure out how to sanitize input (avoid special character bug)
 		const url = `/api/calls/searchCalls/?status=${tabStatuses[selectedTabIndex]}&limit=${rowLimit}&searchText=${escape(searchText)}`;
 		const fetchedData = await fetch(url).then((res) => res.json());
 		rowData = fetchedData;

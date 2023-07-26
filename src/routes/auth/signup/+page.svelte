@@ -21,8 +21,6 @@
 			.then((userCredential) => {
 				// Signed in 
 				const user = userCredential.user;
-				console.log(user);
-				console.log('Signed in (after signup)!');
 				if (accountType === 'writer') {
 					goto('/app/writer/');
 				} else if (accountType === 'editor') {
@@ -38,10 +36,9 @@
 		} else if (method === 'email') {
 			createUserWithEmailAndPassword(firebaseAuth, email, password)
 			.then((userCredential) => {
-				console.log('User signed up!');
 				addNameToProfile(() => {
 					if (accountType === "editor") {
-					goto('/app/editor/');
+						goto('/app/editor/');
 					} else if (accountType === "writer") {
 						goto('/app/writer/');
 					}
@@ -59,15 +56,12 @@
 	const addAccountTypeToProfile = () => {
 		// TODO add a users table in mongoDB (also put each user's settings & permissions there)
 		// TODO merge this function with addNameToProfile & change name
-		console.log('called addAccountTypeToProfile()');
-		console.log(`user selected ${accountType}`);
-	};	
+	};
 
 	const addNameToProfile = (callback) => {
 		updateProfile($user, {
 			displayName: `${firstName} ${lastName}`
 		}).then(() => {
-			console.log(`Changed display name to ${firstName} ${lastName}`);
 			callback();
 		}).catch((error) => {
 			console.log(error)
@@ -98,4 +92,3 @@
 		gap: 8px;
 		margin: 20px 20px 20px 20px;
 	}
-</style>

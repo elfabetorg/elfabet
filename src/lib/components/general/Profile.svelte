@@ -28,15 +28,13 @@
 			accountType = "Editor Account"
 		} else if (dbAccountType === 'writer') {
 			accountType = "Writer Account"
-		} else {
-			accountType = "r u an alien"
 		}
 	}
 
 	const handleSignOut = () => {
-		console.log('sign out');
 		signOut(firebaseAuth)
-      .then(() => {
+      .then(async () => {
+				const serverSignOutRes = await fetch("/api/auth/signin", { method: "DELETE" });
 				goto('/auth/signin');
       })
       .catch((error) => {
@@ -58,7 +56,7 @@
 		<p>{accountType}</p>
 	</div>
 	{#if expanded}
-	<!-- TODO maybe extract this to a component -->
+	<!-- maybe extract this to a Tooltip component -->
 		<div class="tooltip" style="bottom: calc({clientHeight}px)">
 			<a href="" on:click={handleSignOut}>Sign out</a>
 			<div class="sep"></div>

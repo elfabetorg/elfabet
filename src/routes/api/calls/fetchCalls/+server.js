@@ -4,7 +4,7 @@ import { get } from 'svelte/store';
 import { user } from "$lib/authStore.js";
 
 export async function GET({ url }) {
-	// TODO: check if the user is properly authenticated on the server
+	// FIXME: implement server side auth check (to get org id and then only access calls from that org)
 	const docLimit = url.searchParams.get('limit');
 	const callStatus = url.searchParams.get('status');
 	const query = {
@@ -17,6 +17,5 @@ export async function GET({ url }) {
 		// No calls found
 		cleanedFetchedCalls = [["Nothing here yet!", ":)", "Try adding a call"]]
 	}
-	console.log(cleanedFetchedCalls)
 	return json(cleanedFetchedCalls);
 }

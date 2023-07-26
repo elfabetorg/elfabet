@@ -9,7 +9,6 @@
 		const userID = $user.uid;
 		const url = `/api/getUserInfo?userid=${userID}`;
 		userData = await fetch(url).then((res) => res.json());
-		console.log(userData);
 	});
 
 </script>

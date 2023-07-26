@@ -5,7 +5,6 @@
 	import { user } from "$lib/authStore"
 
 	const handleSignOut = () => {
-		console.log('sign out');
 		signOut(firebaseAuth)
       .then(() => {
 				goto('/auth/signin');
