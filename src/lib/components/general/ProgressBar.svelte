@@ -14,6 +14,7 @@
 		flex-direction: row;
 		gap: 8px;
 		align-items: center;
+		height: 40px;
 	}
 	p {
 		font-size: 12px;

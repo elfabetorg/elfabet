@@ -2,21 +2,24 @@
 	import Search from "$lib/components/general/Search.svelte";
 	import CallsTable from "$lib/components/general/CallsTable.svelte";
 
-	let rowData = [];
-
-	// Search
 	let searchText = "";
 
-	// Table
+	// Table constants
 	let currentTabIndex = 0;
-	let callTabs = ["Active Calls", "Inactive Calls", "Unlisted Calls"];
-	let columnTitles = ["Title", "Ends On", "Capacity"];
+	const tabs = ["Active Calls", "Inactive Calls", "Unlisted Calls"];
+	const columnTitles = ["Title", "Ends On", "Capacity"];
+
+	// Table dynamic
+	let copyActive = false;
+	let trashActive;
+
+	$: console.log(copyActive)
 
 </script>
 
 <div id="calls-tab">
-	<Search type="full" bind:searchText={searchText} />
-	<CallsTable bind:selectedTabIndex={currentTabIndex} bind:searchText={searchText} tabs={callTabs} {columnTitles} bind:rowData={rowData} />
+	<Search type="full" bind:searchText={searchText}/>
+	<CallsTable bind:searchText={searchText} bind:selectedTabIndex={currentTabIndex} bind:copyActive={copyActive} bind:trashActive={trashActive} {tabs} {columnTitles} />
 </div>
 
 <style>

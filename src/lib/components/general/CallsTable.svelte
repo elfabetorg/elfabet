@@ -6,12 +6,15 @@
 
 	export let tabs;
 	export let columnTitles;
-	export let rowData;
 	export let searchText;
 
+	export let copyActive = false;
+	export let trashActive = false;
+
+	let rowData = [];
 	let selectedTabIndex = 0;
 	let rowLimit = '20';
-	let tabStatuses = ['active', 'inactive', 'unlisted']
+	let tabStatuses = ['active', 'inactive', 'unlisted'];
 
 	const handleSelectTab = (tab) => { selectedTabIndex = tabs.indexOf(tab) };
 
@@ -25,25 +28,18 @@
 		})
 	};
 
-	const fetchCallsAfterTabOrLimitChange = async () => {
-		rowData = await fetch(`/api/calls/fetchCalls?status=${tabStatuses[selectedTabIndex]}&limit=${rowLimit}`).then((res) => res.json());
+	const fetchCalls = async (callsStatus, callsLimit, callsSearchText) => {
+		rowData = await fetch(`/api/calls/fetchCalls?` + new URLSearchParams({
+			status: callsStatus,
+			limit: callsLimit,
+			searchText: callsSearchText
+		})).then((res) => res.json());
+		console.log('FETCH CALLS')
+		console.log(rowData)
 	};
-
-	const fetchCallsAfterSearch = async (searchText) => {
-		const url = `/api/calls/searchCalls/?status=${tabStatuses[selectedTabIndex]}&limit=${rowLimit}&searchText=${escape(searchText)}`;
-		const fetchedData = await fetch(url).then((res) => res.json());
-		rowData = fetchedData;
-	};
-
-	onMount(async () => {
-		// Fetch data as soon as component is created
-		rowData = await fetch(`/api/calls/fetchCalls?status=${tabStatuses[selectedTabIndex]}&limit=${rowLimit}`).then((res) => res.json());
-	});
 
 	// Dynamic statements
-	$: selectedTabIndex, fetchCallsAfterTabOrLimitChange();
-	$: rowLimit, fetchCallsAfterTabOrLimitChange();
-	$: searchText, fetchCallsAfterSearch(searchText);  // re-fetch calls every time user searches for something
+	$: fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText);
 
 </script>
 
@@ -56,18 +52,20 @@
 	<table>
 		<thead>
 			<tr>
-				{#each columnTitles as columnTitle}
-					<td>
+				{#each columnTitles as columnTitle, i}
+					<td class={`${columnTitles[i]}-column column-title`}>
 						{columnTitle}
 					</td>
 				{/each}
+				<td class="button-column"></td>
+				<td class="button-column"></td>
 			</tr>
 		</thead>
 		{#if rowData.length > 0}
 			{#each rowData as row}
 				<tr>
 					{#each row as col, id}
-						<td>
+						<td class={`${columnTitles[id]}-column`}>
 							{#if id === 2 && col.capacity === 'No maximum capacity'}
 								{col.capacity}
 							{:else if id === 2}
@@ -78,13 +76,21 @@
 							{/if}
 						</td>
 					{/each}
+					<td class="button-column">
+						<img src="/app/calls/copy.svg" alt="Copy icon" on:click={() => { copyActive = true }}>
+					</td>
+					<td class="button-column">
+						<img src="/app/calls/trash.svg" alt="Trash icon" on:click={() => { trashActive = true }}>
+					</td>
 				</tr>
 			{/each}
-		{:else}
-			<!-- Empty state -->
-			<h1>YOUR QUERY RETURNED NO RESULTS :()</h1>
 		{/if}
 	</table>
+	{#if rowData.length === 0}
+		<!-- TODO: replace this empty state -->
+		<img src="/landing/arnold_hungry.svg" alt="A picture of hungry arnold">
+		<h1>We couldn't find anything matching your request sorry :(((((</h1>
+	{/if}
 </div>
 
 <style>
@@ -108,7 +114,7 @@
 		color: var(--dark-gray);
 		padding: 2px 8px 0px 8px;
 		font-size: 14px;
-		line-height: 32px;
+		line-height: 30px;
 	}
 	.selected {
 		border-bottom: 2px solid var(--accent);
@@ -120,15 +126,29 @@
 		width: 100%
 	}
 	thead {
-		width: 100px;
 		background: var(--light-gray);
 		font-weight: bold;
-	}
-	tr {
-		line-height: 40px;
+		width: 100px;
+		padding-left: 12px;
 	}
 	td {
 		padding-left: 12px;
-		width: 100px;
+		width: 80px;
+		line-height: 40px;
+	}
+	.button-column {
+		width: 4px;
+		padding: 2px;
+		padding-top: 4px;
+	}
+	img {
+		cursor: pointer;
+	}
+	.Title-column {
+		width: 140px;
+		text-decoration: underline;
+	}
+	.column-title {
+		text-decoration: none;
 	}
 </style>
