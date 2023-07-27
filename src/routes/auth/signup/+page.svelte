@@ -19,8 +19,8 @@
 		if (method === 'google') {
 			signInWithPopup(firebaseAuth, googleProvider)
 			.then((userCredential) => {
-				// Signed in 
 				const user = userCredential.user;
+				addAccountTypeToProfile(user.uid, accountType);
 				if (accountType === 'writer') {
 					goto('/app/writer/');
 				} else if (accountType === 'editor') {
@@ -36,6 +36,8 @@
 		} else if (method === 'email') {
 			createUserWithEmailAndPassword(firebaseAuth, email, password)
 			.then((userCredential) => {
+				const user = userCredential.user;
+				addAccountTypeToProfile(user.uid, accountType);
 				addNameToProfile(() => {
 					if (accountType === "editor") {
 						goto('/app/editor/');
@@ -53,9 +55,14 @@
 		}
 	};
 
-	const addAccountTypeToProfile = () => {
-		// TODO add a users table in mongoDB (also put each user's settings & permissions there)
-		// TODO merge this function with addNameToProfile & change name
+	const addAccountTypeToProfile = async (userID, userType) => {
+		await fetch('/api/auth/signup', { 
+			method: 'POST', 
+			body: JSON.stringify({ userID, userType }),
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		})
 	};
 
 	const addNameToProfile = (callback) => {

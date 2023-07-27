@@ -80,7 +80,7 @@
 		position: -webkit-sticky;
   	position: sticky;
 		padding: 32px 24px 24px 24px;
-		height: calc(100% - 48px - 24px);
+		height: calc(100% - 32px - 24px);
 		display: flex;
 		flex-direction: column;
 		align-items: left;

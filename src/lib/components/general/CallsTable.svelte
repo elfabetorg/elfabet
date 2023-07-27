@@ -15,7 +15,7 @@
 	const handleSelectTab = (tab) => { selectedTabIndex = tabs.indexOf(tab) };
 
 	const addCall = async (call) => {
-		const response = await fetch('/api/calls/addCall', { 
+		await fetch('/api/calls/addCall', { 
 			method: 'POST', 
 			body: JSON.stringify({ call }),
 			headers: {

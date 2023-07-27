@@ -16,7 +16,11 @@
 <div id="user-home">
 	<p>This is {$user.displayName}'s submissions page.</p>
 	{#if userData !== null}
-	<p>{$user.displayName} is part of the {userData.org.name} organization.</p>
+		<p>{$user.displayName} is part of the {userData.org.name} organization.</p>
+	{:else}
+		<!-- FIXME make joining orgs work-->
+		<p>There's nothing here yet, sorry. Request to join an organization:</p>
+		<input type="text">
 	{/if}
 	<p>Submissions Tab!</p>
 </div>
