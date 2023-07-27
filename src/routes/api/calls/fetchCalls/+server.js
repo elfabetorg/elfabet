@@ -12,10 +12,14 @@ export async function GET({ url }) {
 	}
 	const fetchedCalls = await callsDB.collection("calls").find(query).limit(Number(docLimit)).toArray();
 	// Clean fetched calls for UI display
-	var cleanedFetchedCalls = fetchedCalls.map((val) => { return [val.title, val.endsOn.type === 'Date' ? new Date(val.endsOn.date).toDateString() : val.endsOn.type, val.hasMaxCapacity ? `${val.capacity}` : 'No maximum capacity'] })
-	if (cleanedFetchedCalls.length === 0) {
-		// No calls found
-		cleanedFetchedCalls = [["Nothing here yet!", ":)", "Try adding a call"]]
+	const mapDataToCleaned = (val) => {
+		const capacityData = {
+			capacity: val.hasMaxCapacity ? val.capacity : 'No maximum capacity',
+			value: val.submissionIDs.length
+		}
+		return [val.title, val.endsOn.type === 'Date' ? new Date(val.endsOn.date).toDateString() : val.endsOn.type, capacityData]
 	}
+	var cleanedFetchedCalls = fetchedCalls.map(mapDataToCleaned)
+	// Add stuff for capacity component
 	return json(cleanedFetchedCalls);
 }

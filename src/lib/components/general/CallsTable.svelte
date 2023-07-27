@@ -1,5 +1,6 @@
 <script lang="ts">
 
+	import ProgressBar from '$lib/components/general/ProgressBar.svelte';
 	import { calls } from "$lib/interfaces/utils.ts";
 	import { onMount } from "svelte";
 
@@ -49,7 +50,7 @@
 <div class="table">
 	<div class="tabs">
 		{#each tabs as tab}
-			<button class={selectedTabIndex === tabs.indexOf(tab) ? 'tab selected' : 'tab'} on:click={() => handleSelectTab(tab) }>{tab}</button>
+			<button class={selectedTabIndex === tabs.indexOf(tab) ? 'tab selected' : 'tab'} on:click={() => handleSelectTab(tab)}>{tab}</button>
 		{/each}
 	</div>
 	<table>
@@ -62,15 +63,27 @@
 				{/each}
 			</tr>
 		</thead>
-		{#each rowData as row}
-			<tr>
-				{#each row as col}
-					<td>
-						{col}
-					</td>
-				{/each}
-			</tr>
-		{/each}
+		{#if rowData.length > 0}
+			{#each rowData as row}
+				<tr>
+					{#each row as col, id}
+						<td>
+							{#if id === 2 && col.capacity === 'No maximum capacity'}
+								{col.capacity}
+							{:else if id === 2}
+								<!-- In the third column, if applicable, put a progress bar component in the table instead of text -->
+								<ProgressBar value={col.value} maxValue={col.capacity}/>
+							{:else}
+								{col}
+							{/if}
+						</td>
+					{/each}
+				</tr>
+			{/each}
+		{:else}
+			<!-- Empty state -->
+			<h1>YOUR QUERY RETURNED NO RESULTS :()</h1>
+		{/if}
 	</table>
 </div>
 
@@ -107,8 +120,9 @@
 		width: 100%
 	}
 	thead {
+		width: 100px;
 		background: var(--light-gray);
-		font-weight: bold
+		font-weight: bold;
 	}
 	tr {
 		line-height: 40px;
