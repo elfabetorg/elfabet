@@ -1,6 +1,7 @@
 <script>
 	import Search from "$lib/components/general/Search.svelte";
 	import CallsTable from "$lib/components/general/CallsTable.svelte";
+	import Alert from "$lib/components/general/Alert.svelte";
 
 	let searchText = "";
 
@@ -11,7 +12,23 @@
 
 	// Table dynamic
 	let copyActive = false;
-	let trashActive;
+	let trashActive = false;
+
+	// Modal alert constants
+	let copyAlertData = {
+		title: "Are you sure you want to duplicate this call?",
+		desc: "You can always delete the new one if you change your mind."
+	};
+	let trashAlertData = {
+		title: "Are you sure you want to delete this call?",
+		desc: "This action is NOT reversible! PLEASE BE WARNED!"
+	};
+	const duplicateCall = () => {
+
+	};
+	const deleteCall = () => {
+		
+	};
 
 	$: console.log(copyActive)
 
@@ -20,6 +37,8 @@
 <div id="calls-tab">
 	<Search type="full" bind:searchText={searchText}/>
 	<CallsTable bind:searchText={searchText} bind:selectedTabIndex={currentTabIndex} bind:copyActive={copyActive} bind:trashActive={trashActive} {tabs} {columnTitles} />
+	<Alert bind:active={copyActive} title={copyAlertData.title} desc={copyAlertData.desc} action={duplicateCall} />
+	<Alert bind:active={trashActive} title={trashAlertData.title} desc={trashAlertData.desc} action={deleteCall} />
 </div>
 
 <style>

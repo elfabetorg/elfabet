@@ -7,12 +7,12 @@
 	export let tabs;
 	export let columnTitles;
 	export let searchText;
+	export let selectedTabIndex = 0;
 
 	export let copyActive = false;
 	export let trashActive = false;
 
 	let rowData = [];
-	let selectedTabIndex = 0;
 	let rowLimit = '20';
 	let tabStatuses = ['active', 'inactive', 'unlisted'];
 
