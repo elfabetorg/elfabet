@@ -87,7 +87,6 @@
 		<option value="writer">Writer account</option>
 	</select>
 	<button on:click={() => signUp('email')}>Sign up</button>
-	<div class="divider"></div>
 	<button on:click={() => signUp('google')}>Sign up with google</button>
 </div>
 
@@ -99,3 +98,4 @@
 		gap: 8px;
 		margin: 20px 20px 20px 20px;
 	}
+</style>

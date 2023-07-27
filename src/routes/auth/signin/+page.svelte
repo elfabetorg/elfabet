@@ -74,6 +74,7 @@
 </script>
 
 <div id="signup-form">
+	<!-- FIXME forgot password / reset UI -->
 	<h3>Sign in</h3>
 	<input id="email" type="text" bind:value={email}>
 	<input id="password" type="text" bind:value={password}>
