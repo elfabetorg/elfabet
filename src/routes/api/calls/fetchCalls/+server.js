@@ -14,6 +14,7 @@ export async function GET({ url }) {
 	const searchText = url.searchParams.get('searchText');
 	const docLimit = url.searchParams.get('limit');
 	const callStatus = url.searchParams.get('status');
+	const getRaw = url.searchParams.get('getRaw');
 	let pipeline;
 	if (searchText === '') {
 		pipeline = [{
@@ -41,8 +42,12 @@ export async function GET({ url }) {
 		}]
 	}
 	const fetchedCalls = await callsDB.collection("calls").aggregate(pipeline).limit(Number(docLimit)).toArray();
-	// Clean fetched calls for UI display
-	var cleanedFetchedCalls = fetchedCalls.map(mapDataToCleaned)
-	// Add stuff for capacity component
-	return json(cleanedFetchedCalls);
+	if (getRaw) {
+		return json(fetchedCalls);
+	} else {
+		// Clean fetched calls for UI display if necessary
+		var cleanedFetchedCalls = fetchedCalls.map(mapDataToCleaned)
+		// Add stuff for capacity component
+		return json(cleanedFetchedCalls);
+	}
 }

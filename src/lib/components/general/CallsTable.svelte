@@ -11,8 +11,11 @@
 
 	export let copyActive = false;
 	export let trashActive = false;
+	export let activeCall = {};
+	export let fetchDataAgain = false;
 
 	let rowData = [];
+	let rawRowData = [];
 	let rowLimit = '20';
 	let tabStatuses = ['active', 'inactive', 'unlisted'];
 
@@ -32,14 +35,20 @@
 		rowData = await fetch(`/api/calls/fetchCalls?` + new URLSearchParams({
 			status: callsStatus,
 			limit: callsLimit,
-			searchText: callsSearchText
+			searchText: callsSearchText,
 		})).then((res) => res.json());
-		console.log('FETCH CALLS')
-		console.log(rowData)
+		rawRowData = await fetch(`/api/calls/fetchCalls?` + new URLSearchParams({
+			status: callsStatus,
+			limit: callsLimit,
+			searchText: callsSearchText,
+			getRaw: true
+		})).then((res) => res.json());
+		fetchDataAgain = false;
 	};
 
 	// Dynamic statements
-	$: fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText);
+	$: fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText); // re-fetch processed call data for table after search change
+	$: fetchDataAgain, fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText);
 
 </script>
 
@@ -62,13 +71,13 @@
 			</tr>
 		</thead>
 		{#if rowData.length > 0}
-			{#each rowData as row}
-				<tr>
-					{#each row as col, id}
-						<td class={`${columnTitles[id]}-column`}>
-							{#if id === 2 && col.capacity === 'No maximum capacity'}
+			{#each rowData as row, rowIndex}
+				<tr class="call-row">
+					{#each row as col, colIndex}
+						<td class={`${columnTitles[colIndex]}-column`}>
+							{#if colIndex === 2 && col.capacity === 'No maximum capacity'}
 								{col.capacity}
-							{:else if id === 2}
+							{:else if colIndex === 2}
 								<!-- In the third column, if applicable, put a progress bar component in the table instead of text -->
 								<ProgressBar value={col.value} maxValue={col.capacity}/>
 							{:else}
@@ -77,7 +86,7 @@
 						</td>
 					{/each}
 					<td class="button-column">
-						<img src="/app/calls/copy.svg" alt="Copy icon" on:click={() => { copyActive = true }}>
+						<img src="/app/calls/copy.svg" alt="Copy icon" on:click={() => { copyActive = true; activeCall = rawRowData[rowIndex]}}>
 					</td>
 					<td class="button-column">
 						<img src="/app/calls/trash.svg" alt="Trash icon" on:click={() => { trashActive = true }}>
