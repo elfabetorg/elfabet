@@ -37,15 +37,12 @@
 		fetchDataAgain = true; 
 	};
 
-	const deleteCall = () => {
-		// await fetch('/api/calls/deleteCall', { 
-		// 	method: 'POST', 
-		// 	body: JSON.stringify({ activeCall }),
-		// 	headers: {
-		// 		'Content-Type': 'application/json'
-		// 	}
-		// });
-		// fetchDataAgain = true;
+	const deleteCall = async () => {
+		const callID = activeCall._id;
+		await fetch(`/api/calls/deleteCall?` + new URLSearchParams({ docID: callID }) , { 
+			method: 'DELETE'
+		});
+		fetchDataAgain = true;
 	};
 
 </script>

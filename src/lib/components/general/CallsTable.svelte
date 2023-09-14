@@ -48,6 +48,8 @@
 
 	// Dynamic statements
 	$: fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText); // re-fetch processed call data for table after search change
+	// TODO: add a delay to the search, don't do it after every change, bc rn it's chonky. maybe have a donetyping variable and 
+	// split into separate call
 	$: fetchDataAgain, fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText);
 
 </script>
@@ -89,7 +91,7 @@
 						<img src="/app/calls/copy.svg" alt="Copy icon" on:click={() => { copyActive = true; activeCall = rawRowData[rowIndex]}}>
 					</td>
 					<td class="button-column">
-						<img src="/app/calls/trash.svg" alt="Trash icon" on:click={() => { trashActive = true }}>
+						<img src="/app/calls/trash.svg" alt="Trash icon" on:click={() => { trashActive = true; activeCall = rawRowData[rowIndex] }}>
 					</td>
 				</tr>
 			{/each}
