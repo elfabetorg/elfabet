@@ -1,6 +1,8 @@
 <script>
 	import Search from "$lib/components/general/Search.svelte";
-	import CallsTable from "$lib/components/general/CallsTable.svelte";
+	import CallsTable from "./CallsTable.svelte";
+	import CallDetailView from "./CallDetailView.svelte";
+	import DetailView from "$lib/components/general/DetailView.svelte";
 	import Alert from "$lib/components/general/Alert.svelte";
 
 	let searchText = "";
@@ -15,6 +17,7 @@
 	let trashActive = false;
 	let activeCall = {};
 	let fetchDataAgain = false;
+	let showDetailView = false;
 
 	// Modal alert constants
 	let copyAlertData = {
@@ -49,9 +52,12 @@
 
 <div id="calls-tab">
 	<Search type="full" bind:searchText={searchText}/>
-	<CallsTable bind:searchText={searchText} bind:selectedTabIndex={currentTabIndex} bind:copyActive={copyActive} bind:trashActive={trashActive} bind:activeCall={activeCall} bind:fetchDataAgain={fetchDataAgain} {tabs} {columnTitles} />
+	<CallsTable bind:searchText={searchText} bind:selectedTabIndex={currentTabIndex} bind:copyActive={copyActive} bind:trashActive={trashActive} bind:activeCall={activeCall} bind:fetchDataAgain={fetchDataAgain} bind:showDetailView={showDetailView} {tabs} {columnTitles} />
 	<Alert bind:active={copyActive} title={copyAlertData.title} desc={copyAlertData.desc} action={duplicateCall} />
 	<Alert bind:active={trashActive} title={trashAlertData.title} desc={trashAlertData.desc} action={deleteCall} />
+	<DetailView bind:showDetailView={showDetailView}>
+		<CallDetailView bind:call={activeCall} />
+	</DetailView>
 </div>
 
 <style>

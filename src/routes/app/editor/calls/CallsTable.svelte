@@ -4,15 +4,18 @@
 	import { calls } from "$lib/interfaces/utils.ts";
 	import { onMount } from "svelte";
 
+	// Data state
 	export let tabs;
 	export let columnTitles;
 	export let searchText;
 	export let selectedTabIndex = 0;
+	export let fetchDataAgain = false;
 
+	// Visual state
 	export let copyActive = false;
 	export let trashActive = false;
 	export let activeCall = {};
-	export let fetchDataAgain = false;
+	export let showDetailView = false;
 
 	let rowData = [];
 	let rawRowData = [];
@@ -77,10 +80,16 @@
 				<tr class="call-row">
 					{#each row as col, colIndex}
 						<td class={`${columnTitles[colIndex]}-column`}>
-							{#if colIndex === 2 && col.capacity === 'No maximum capacity'}
+							{#if colIndex === 0}
+								<!-- Call title -->
+								<div class="title" on:click={() => { showDetailView = true; activeCall = rawRowData[rowIndex] }}>
+									{col}
+								</div>
+							{:else if colIndex === 2 && col.capacity === 'No maximum capacity'}
+								<!-- Call Capacity -->
 								{col.capacity}
 							{:else if colIndex === 2}
-								<!-- In the third column, if applicable, put a progress bar component in the table instead of text -->
+								<!-- Call Progress Bar -->
 								<ProgressBar value={col.value} maxValue={col.capacity}/>
 							{:else}
 								{col}

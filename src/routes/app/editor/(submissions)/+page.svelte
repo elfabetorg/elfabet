@@ -3,6 +3,7 @@
 	import { user } from "$lib/authStore";
 	import { page } from '$app/stores';
 
+	let showAlert = true;
 	let userData = null;
 
 	onMount(async () => {
@@ -11,6 +12,8 @@
 		userData = await fetch(url).then((res) => res.json());
 	});
 </script>
+
+<!-- FIXME fix svelte page flashes https://www.reddit.com/r/sveltejs/comments/su8mx7/how_do_you_manage_your_loading_state/, https://www.connorcallahan.info/posts/sveltekit-flickering -->
 
 <div id="user-home">
 	<p>This is {$user.displayName}'s submissions tab.</p>
