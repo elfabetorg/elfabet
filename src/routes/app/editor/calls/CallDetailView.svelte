@@ -1,6 +1,7 @@
 <script>
 	import TabView from '$lib/components/general/TabView.svelte';
 	import CallDetailsTab from "./CallDetailsTab.svelte";
+	import { mongoDateToReadableFormat } from '$lib/utils/mongoDButils.js';
 
   export let call;
 
@@ -17,7 +18,7 @@
 	<h1>{call.title}</h1>
 	<div id="ends-on">
 		{#if call.endsOn.type === 'Date'}
-			<h3>Ends on {call.endsOn.date}</h3>
+			<h3>Ends on {mongoDateToReadableFormat(call.endsOn.date)}</h3>
 		{:else if call.endsOn.type === 'Quota'}
 			<h3>Ends on Quota</h3>
 		{/if}

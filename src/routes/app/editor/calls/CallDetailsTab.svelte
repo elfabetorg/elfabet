@@ -1,26 +1,34 @@
-<svelte:head>
-	<!-- Quill theme -->
-	<link rel="preconnect" href="https://cdn.quilljs.com" crossorigin>
-	<link rel="stylesheet" href="https://cdn.quilljs.com/1.3.7/quill.snow.css">
-</svelte:head>
-
 <script>
 	import RichTextEditor from '$lib/components/general/RichTextEditor.svelte';
+	import { getUTCDateForMongoDB } from '$lib/utils/mongoDButils.js';
 
 	export let form;
 	export let call;
 
 	// Local state
-	let editedTitle = call.title; // a local state
+	let editedTitle = call.title; 
+	let editedEndsOnType = call.endsOn.type;
+	let initialDate = call.endsOn.type === 'Date' ? new Date(call.endsOn.date).toISOString().slice(0, 16) : null;
+	let editedEndsOnDate = initialDate;
 
 	// Visual state variables
 	let editMode = false;
-
+	
 	function handleContentChange(event) {
 	}
 
 	const editCall = async () => {
-		const changedProperties = { title: editedTitle, form: { description: form.description } }; // Adjust as needed
+		const changedProperties = { 
+			title: editedTitle, 
+			form: { description: form.description }, 
+			endsOn: { 
+				type: editedEndsOnType, 
+				date: editedEndsOnType === 'Date' ? getUTCDateForMongoDB(editedEndsOnDate) : null
+			} 
+		}; 
+		if (changedProperties.endsOn.date === null) {
+			delete changedProperties.endsOn.date;
+		}
 		const response = await fetch('/api/calls/editCall', {
 			method: 'PATCH',
 			headers: {
@@ -31,20 +39,38 @@
 		const result = await response.json();
 		call = result.body.modifiedCall;
 	};
-
 </script>
+
+<svelte:head>
+	<link rel="preconnect" href="https://cdn.quilljs.com" crossorigin>
+	<link rel="stylesheet" href="https://cdn.quilljs.com/1.3.7/quill.snow.css">
+</svelte:head>
 
 <div id="call-details-tab">
 	<div class="row">
 		<h3>Call Details</h3>
 		<div class="spacer"></div>
-		<button on:click={editCall}>Update Call</button>
+		<button on:click={editCall}>Save changes</button>
 	</div>
 	<form action="">
 		<div class="field">
 			<label for="title">Title</label>
 			<input name="title" id="title" type="text" placeholder="Enter title..." bind:value={editedTitle}>
 		</div>
+		<div class="field">
+			<label for="endson-type">Ends On</label>
+			<select name="endson-type" id="endson-type" bind:value={editedEndsOnType}>
+				<option value="Date">Date</option>
+				<option value="Quota">Quota</option>
+				<option value="Never">Never</option>
+			</select>
+		</div>
+		{#if editedEndsOnType === 'Date'}
+			<div class="field">
+				<label for="endson-date">End Date</label>
+				<input type="datetime-local" name="endson-date" id="endson-date" bind:value={editedEndsOnDate} />
+			</div>
+		{/if}
 		<div class="field">
 			<label for="description">Description</label>
 			<div id="description" class="rich-text-container">
