@@ -1,17 +1,16 @@
 <script>
 	import TabView from '$lib/components/general/TabView.svelte';
-	import SubmissionForm from "./SubmissionForm.svelte";
+	import CallDetailsTab from "./CallDetailsTab.svelte";
 
   export let call;
 
 	// Constants
 	const tabs = [
-    { label: 'Submission Form' },
+    { label: 'Call Details' },
+		{ label: 'Submission Form'},
     { label: 'Settings' },
     { label: 'Analytics' },
   ];
-
-	$: console.log(call)
 </script>
 
 <div id="call-detail-view">
@@ -28,11 +27,13 @@
 		<TabView {tabs}>
 			<div slot="tab-content" let:selectedTabIndex>
 				{#if selectedTabIndex === 0}
-					<SubmissionForm form={call.form} />
+					<CallDetailsTab bind:form={call.form} bind:call={call}/>
 				{:else if selectedTabIndex === 1}
 					<p>Content for Tab 2</p>
-				{:else}
+				{:else if selectedTabIndex === 2}
 					<p>Content for Tab 3</p>
+				{:else}
+					<p>Content for Tab 4</p>
 				{/if}
 			</div>
 		</TabView>

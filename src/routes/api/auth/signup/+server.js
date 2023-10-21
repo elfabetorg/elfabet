@@ -7,5 +7,4 @@ export const POST = async ({ request, cookies }) => {
 		type: userType
 	};
 	const result = await usersDB.collection('users').insertOne(userData);
-	console.log(result)
 };

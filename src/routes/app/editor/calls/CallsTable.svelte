@@ -54,6 +54,7 @@
 	// TODO: add a delay to the search, don't do it after every change, bc rn it's chonky. maybe have a donetyping variable and 
 	// split into separate call
 	$: fetchDataAgain, fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText);
+	$: showDetailView, fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText);
 
 </script>
 
