@@ -13,7 +13,7 @@
 		if (typeof window !== 'undefined') {
 			const Quill = (await import('quill')).default;
 			quillInstance = new Quill(editorContainer, {
-				theme: 'bubble',
+				theme: 'bubble', 
 				placeholder: placeholderText
 			});
 			if (deltaContent) {
