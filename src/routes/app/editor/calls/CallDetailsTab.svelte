@@ -17,18 +17,33 @@
 	function handleContentChange(event) {
 	}
 
-	const editCall = async () => {
-		const changedProperties = { 
-			title: editedTitle, 
+	const handleSaveChanges = () => {
+		if (call._id === null) {
+			console.log("wee")
+			// User is adding a new call
+			addCall(call);
+		} else {
+			editCall();
+		}
+	}
+
+	const getEditedCall = () => {
+		const editedCall = { 
+			title: editedTitle,
 			form: { description: form.description }, 
 			endsOn: { 
 				type: editedEndsOnType, 
 				date: editedEndsOnType === 'Date' ? getUTCDateForMongoDB(editedEndsOnDate) : null
-			} 
-		}; 
-		if (changedProperties.endsOn.date === null) {
-			delete changedProperties.endsOn.date;
+			},
+		};
+		if (editedCall.endsOn.date === null) {
+			delete editedCall.endsOn.date;
 		}
+		return editedCall;
+	}
+
+	const editCall = async () => {
+		const changedProperties = getEditedCall();
 		const response = await fetch('/api/calls/editCall', {
 			method: 'PATCH',
 			headers: {
@@ -39,6 +54,24 @@
 		const result = await response.json();
 		call = result.body.modifiedCall;
 	};
+
+	const addCall = async (call) => {
+		const activeCall = getEditedCall();
+		activeCall.submissionIDs = [];
+		activeCall.status = "draft";
+		const response = await fetch('/api/calls/addCall', { 
+			method: 'POST', 
+			body: JSON.stringify({ activeCall }),
+			headers: {
+				'Content-Type': 'application/json'
+			},
+		});
+		const result = await response.json();
+		call = result.body.call;
+		console.log("add call")
+		console.log(call);
+	};
+
 </script>
 
 <svelte:head>
@@ -50,7 +83,7 @@
 	<div class="row">
 		<h3>Call Details</h3>
 		<div class="spacer"></div>
-		<button on:click={editCall}>Save changes</button>
+		<button on:click={handleSaveChanges}>Save changes</button>
 	</div>
 	<form action="">
 		<div class="field">
@@ -67,7 +100,7 @@
 		</div>
 		{#if editedEndsOnType === 'Date'}
 			<div class="field">
-				<label for="endson-date">End Date</label>
+				<label for="endson-date">End Date (UTC Time)</label>
 				<input type="datetime-local" name="endson-date" id="endson-date" bind:value={editedEndsOnDate} />
 			</div>
 		{/if}

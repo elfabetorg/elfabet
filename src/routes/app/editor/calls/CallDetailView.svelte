@@ -12,6 +12,11 @@
     { label: 'Settings' },
     { label: 'Analytics' },
   ];
+
+	$: {
+		console.log("calll")
+		console.log(call)
+	}
 </script>
 
 <div id="call-detail-view">

@@ -4,7 +4,6 @@ import { ObjectId } from 'mongodb';
 
 export async function PATCH({ request, cookies }) {
 	const { call, changedProperties } = await request.json();
-	console.log(changedProperties)
 	const result = await callsDB.collection("calls").updateOne(
 		{ _id: new ObjectId(call._id)  }, 
 		{ $set: changedProperties }

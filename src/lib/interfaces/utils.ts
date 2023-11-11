@@ -24,7 +24,8 @@ export interface Call {
 export enum CallStatus {
 	active = "active",
 	inactive = "inactive",
-	unlisted = "unlisted"
+	unlisted = "unlisted",
+	draft = "draft"
 }
 
 export interface EndsOn {

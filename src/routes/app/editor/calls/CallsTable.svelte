@@ -20,7 +20,7 @@
 	let rowData = [];
 	let rawRowData = [];
 	let rowLimit = '20';
-	let tabStatuses = ['active', 'inactive', 'unlisted'];
+	let tabStatuses = ['active', 'inactive', 'unlisted', 'draft'];
 
 	const handleSelectTab = (tab) => { selectedTabIndex = tabs.indexOf(tab) };
 

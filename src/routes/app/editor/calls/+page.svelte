@@ -9,7 +9,7 @@
 
 	// Table constants
 	let currentTabIndex = 0;
-	const tabs = ["Active Calls", "Inactive Calls", "Unlisted Calls"];
+	const tabs = ["Active Calls", "Inactive Calls", "Unlisted Calls", "Drafts"];
 	const columnTitles = ["Title", "Ends On", "Capacity"];
 
 	// Table dynamic
@@ -48,10 +48,29 @@
 		fetchDataAgain = true;
 	};
 
+	const handleAddCall = () => {
+		// Generate a new call object with default properties
+		activeCall = {
+			_id: null,
+			title: 'New Call', // Default title
+			endsOn: {
+				type: 'Date', // Default endsOn type
+				date: new Date().toISOString() // Default to current date and time
+			},
+			form: {
+				// Assuming default structure for 'form' based on your application needs
+				description: '', // Default description
+				// Add other necessary default properties for the form
+			},
+		};
+		showDetailView = true; // Show the detail view with the new call
+	};
+
 </script>
 
 <div id="calls-tab">
 	<Search type="full" bind:searchText={searchText}/>
+	<button on:click={handleAddCall}>Add Call</button>
 	<CallsTable bind:searchText={searchText} bind:selectedTabIndex={currentTabIndex} bind:copyActive={copyActive} bind:trashActive={trashActive} bind:activeCall={activeCall} bind:fetchDataAgain={fetchDataAgain} bind:showDetailView={showDetailView} {tabs} {columnTitles} />
 	<Alert bind:active={copyActive} title={copyAlertData.title} desc={copyAlertData.desc} action={duplicateCall} />
 	<Alert bind:active={trashActive} title={trashAlertData.title} desc={trashAlertData.desc} action={deleteCall} />

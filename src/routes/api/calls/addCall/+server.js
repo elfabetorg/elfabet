@@ -5,6 +5,7 @@ export async function POST({ request, cookies }) {
 	const { activeCall } = await request.json();
 	//  Strip call of its ID
 	delete activeCall._id;
-	callsDB.collection("calls").insertOne(activeCall);
-	return json({ status: 201 });
+	const response = await callsDB.collection("calls").insertOne(activeCall);
+	activeCall._id = response["insertedId"];
+	return json({ status: 201, body: { success: true, call: activeCall}  });
 }
