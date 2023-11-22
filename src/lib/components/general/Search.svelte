@@ -6,8 +6,9 @@
 
 	// Logic state
 	export let searchText;
+	export let recycleActive = false;
 	let filterActive = false;
-	let recycleActive = false;
+	
 
 	// Visual state
 	let borderColor = "var(--gray)";
@@ -19,6 +20,7 @@
 
 	const handleFilterState = () => { if (filterActive) { filterColor = "var(--accent)"; filterBgColor = "var(--accent-05)"; } else { filterColor = "var(--dark-gray)"; filterBgColor = "var(--primary-white)" } };
 	const toggleFilterState = () => { filterActive = !filterActive; };
+	const handleRecycle = () => { recycleActive = true; };
 
 	$: filterActive, handleFilterState();
 
@@ -37,7 +39,7 @@
 			<svg id="filter-icon" on:click={toggleFilterState} style="background-color: {filterBgColor}" fill="{filterColor}" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 				<path d="M21 20H14M10 20H3M21 12L12 12M8 12H3M21 4H16M12 4H3M14 23V17M8 15V9M16 7V1" stroke="{filterColor}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 			</svg>
-			<svg id="recycle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg id="recycle-icon" on:click={handleRecycle} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M13 19.0005H17.2942C19.1594 19.0005 20.092 19.0005 20.6215 18.6097C21.0832 18.2689 21.3763 17.7464 21.4263 17.1748C21.4836 16.5191 20.9973 15.7234 20.0247 14.1318L19.0278 12.5005M6.13014 10.6057L3.97528 14.1318C3.00267 15.7234 2.51637 16.5191 2.57372 17.1748C2.62372 17.7464 2.91681 18.2689 3.37846 18.6097C3.90799 19.0005 4.84059 19.0005 6.70578 19.0005H8.5M16.8889 9.00048L14.7305 5.46857C13.8277 3.99128 13.3763 3.25263 12.7952 3.00082C12.2879 2.78098 11.7121 2.78098 11.2048 3.00082C10.6237 3.25263 10.1723 3.99128 9.2695 5.46857L8.24967 7.13738M18 5.00055L16.9019 9.09862L12.8038 8.00055M2 11.5986L6.09808 10.5005L7.19615 14.5986M15.5 22.0005L12.5 19.0005L15.5 16.0005" stroke="var(--dark-gray)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 			</svg>
 		</div>

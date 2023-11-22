@@ -11,15 +11,20 @@ const mapDataToCleaned = (val) => {
 
 export async function GET({ url }) {
 	// FIXME: implement server side auth check (to get org id and then only access calls from that org) 
-	const searchText = url.searchParams.get('searchText');
-	const docLimit = url.searchParams.get('limit');
-	const callStatus = url.searchParams.get('status');
-	const getRaw = url.searchParams.get('getRaw');
-	let pipeline;
+	const searchText = url.searchParams.get('searchText') || '';
+	const docLimit = url.searchParams.get('limit') || 200;
+	const callStatus = url.searchParams.get('status') || ['active', 'inactive', 'unlisted', 'draft'];
+	const getRaw = url.searchParams.get('getRaw') || false;
+	let pipeline = [];
+
+	// console.log(`searchText: ${searchText}`);
+	// console.log(`docLimit: ${docLimit}`);
+	// console.log(`callStatus: ${callStatus}`);
+
 	if (searchText === '') {
 		pipeline = [{
 			$match: {
-				status: callStatus,
+				status: callStatus
 			}
 		}]
 	} else {
@@ -41,7 +46,9 @@ export async function GET({ url }) {
 			}
 		}]
 	}
+	
 	const fetchedCalls = await callsDB.collection("calls").aggregate(pipeline).limit(Number(docLimit)).toArray();
+	
 	if (getRaw) {
 		return json(fetchedCalls);
 	} else {
