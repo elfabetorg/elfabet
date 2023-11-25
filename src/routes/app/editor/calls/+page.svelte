@@ -8,6 +8,7 @@
 	import JSZip from 'jszip';
 
 	let searchText = "";
+	let fileInput;
 
 	// Table constants
 	let currentTabIndex = 0;
@@ -36,6 +37,9 @@
 		title: "Are you sure you want to recycle all of your unlisted and inactive calls?",
 		desc: "This action is NOT reversible! PLEASE BE WARNED!",
 		alertCopy: "Are you sure you want to recycle your files? This will download your inactive and unlisted calls as a ZIP file."
+	}
+	let uploadAlertData = {
+		alertCopy: "Are you sure you want to upload these calls?"
 	}
 	
 	const duplicateCall = async () => {
@@ -93,10 +97,10 @@
 		let json = JSON.stringify(callsToRecycle);
 		if (confirm(recycleAlertData.alertCopy)) {
 			promptDownloadFile(json);
-			await fetch(`/api/calls/deleteCall?` + new URLSearchParams({ status: ['unlisted'] }) , { 
+			await fetch(`/api/calls/deleteCalls?` + new URLSearchParams({ status: ['unlisted'] }) , { 
 				method: 'DELETE'
 			});
-			await fetch(`/api/calls/deleteCall?` + new URLSearchParams({ status: ['inactive'] }) , { 
+			await fetch(`/api/calls/deleteCalls?` + new URLSearchParams({ status: ['inactive'] }) , { 
 				method: 'DELETE'
 			});
 		};
@@ -125,6 +129,52 @@
 		showModalView = true;
 	};
 
+	const handleDrop = (event) => {
+		event.preventDefault();
+		const files = event.dataTransfer.files;
+		processFiles(files);
+	}
+
+	const handleClick = () => {
+		fileInput.click();
+	}
+
+	const handleFileChange = (event) => {
+		processFiles(event.target.files);
+	}
+
+	const processFiles = (files) => {
+		if (files.length === 0) return;
+		const file = files[0];
+		if (file.type !== "application/json") {
+			console.error("Please upload a JSON file.");
+			return;
+		}
+		// Process the file here (e.g., read its contents)
+		readFile(file);
+	}
+
+	const readFile = (file) => {
+		const reader = new FileReader();
+		const confirmed = confirm(uploadAlertData.alertCopy);
+		let calls;
+		reader.onload = async (e) => {
+			calls = e.target.result;
+			if (confirmed) {
+				await fetch('/api/calls/addCalls', { 
+					method: 'POST', 
+					body: JSON.stringify({ calls }),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				});
+				showModalView = false;
+			} else {
+				showModalView = false;
+			}
+		};
+		reader.readAsText(file)
+	};
 </script>
 
 <div id="calls-tab">
@@ -141,8 +191,18 @@
 		<CallDetailView bind:call={activeCall} />
 	</DetailView>
 	<ModalView bind:showModalView={showModalView}>
-		<h1>I'm a modal view!</h1>
-		<!-- TODO: make file modal view component -->
+		<div class="content"
+     on:drop|preventDefault={handleDrop}
+     on:dragover|preventDefault
+     on:dragenter|preventDefault>
+				<h1>Drag file here, or click the button below</h1>
+				<ol>
+					<li>Open the ZIP file of archived calls.</li>
+					<li>Drag the unzipped JSON file in this box.</li>
+				</ol>
+				<button on:click={handleClick}>Import file</button>
+				<input type="file" bind:this={fileInput} on:change={handleFileChange} accept=".json" hidden />
+		</div>
 	</ModalView>
 </div>
 
@@ -151,5 +211,8 @@
 		display: flex;
 		flex-direction: row;
 		gap: 16px;
+	}
+	li {
+		font-size: 24px;
 	}
 </style>

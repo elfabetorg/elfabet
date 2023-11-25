@@ -1,12 +1,11 @@
 import { json } from '@sveltejs/kit';
 import { callsDB } from "$lib/mongoDB.server.js";
-import { ObjectId } from 'mongodb'
 
 export async function DELETE({ url }) {
-	const docID = url.searchParams.get('docID');
+	const callStatus = url.searchParams.get('status') || ['active', 'inactive', 'unlisted', 'draft'];
 	const query = {
-		"_id": new ObjectId(docID)
+		status: callStatus
 	}
-	const resp = await callsDB.collection("calls").deleteOne(query);
+	await callsDB.collection("calls").deleteMany(query);
 	return json({ status: 201 });
 }

@@ -19,7 +19,6 @@
 
 	const handleSaveChanges = () => {
 		if (call._id === null) {
-			console.log("wee")
 			// User is adding a new call
 			addCall(call);
 		} else {
@@ -68,8 +67,6 @@
 		});
 		const result = await response.json();
 		call = result.body.call;
-		console.log("add call")
-		console.log(call);
 	};
 
 </script>
