@@ -11,15 +11,20 @@
 	let initialDate = call.endsOn.type === 'Date' ? new Date(call.endsOn.date).toISOString().slice(0, 16) : null;
 	let editedEndsOnDate = initialDate;
 
+	// FIXME: edit description
+
 	// Visual state variables
 	let editMode = false;
 	
 	function handleContentChange(event) {
 	}
 
+	// TODO: add conditional in UI to either show "Add call" or "Save changes". Should call different functions
 	const handleSaveChanges = () => {
 		if (call._id === null) {
 			// User is adding a new call
+			console.log("_id is null");
+			console.log(call);
 			addCall(call);
 		} else {
 			editCall();
@@ -34,6 +39,7 @@
 				type: editedEndsOnType, 
 				date: editedEndsOnType === 'Date' ? getUTCDateForMongoDB(editedEndsOnDate) : null
 			},
+			orgID: call.orgID
 		};
 		if (editedCall.endsOn.date === null) {
 			delete editedCall.endsOn.date;
@@ -55,6 +61,7 @@
 	};
 
 	const addCall = async (call) => {
+		console.log("add call!")
 		const activeCall = getEditedCall();
 		activeCall.submissionIDs = [];
 		activeCall.status = "draft";

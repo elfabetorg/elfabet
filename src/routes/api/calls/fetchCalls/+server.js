@@ -15,6 +15,7 @@ export async function GET({ url }) {
 	const docLimit = url.searchParams.get('limit') || 200;
 	const callStatus = url.searchParams.get('status') || ['active', 'inactive', 'unlisted', 'draft'];
 	const getRaw = url.searchParams.get('getRaw') || false;
+	const orgID = url.searchParams.get('orgID');
 	let pipeline = [];
 
 	// console.log(`searchText: ${searchText}`);
@@ -24,27 +25,30 @@ export async function GET({ url }) {
 	if (searchText === '') {
 		pipeline = [{
 			$match: {
+				orgID: orgID,
 				status: callStatus
 			}
 		}]
 	} else {
-		pipeline = [{
-			$search: {
-				"autocomplete": {
-					"query": searchText,
-					"path": "title",
-					"tokenOrder": "sequential",
-					"fuzzy": {
-						maxEdits: 2
-					}
-				},
-			}
-		}, 
-		{
-			$match: {
-				status: callStatus,
-			}
-		}]
+		pipeline = [
+			{
+				$search: {
+					"autocomplete": {
+						"query": searchText,
+						"path": "title",
+						"tokenOrder": "sequential",
+						"fuzzy": {
+							maxEdits: 2
+						}
+					},
+				}
+			},
+			{
+				$match: {
+					orgID: orgID,
+					status: callStatus,
+				}
+			}]
 	}
 	
 	const fetchedCalls = await callsDB.collection("calls").aggregate(pipeline).limit(Number(docLimit)).toArray();

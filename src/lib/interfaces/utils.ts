@@ -91,9 +91,10 @@ export interface SubmissionQuestion {
 
 export enum SubmissionQuestionType {
 	text = "text",
-	multipleChoice = "multiple choice",
+	richText = "richText",
+	multipleChoice = "multiple_choice",
 	checkboxes = "checkboxes",
-	fileUpload = "file upload"
+	fileUpload = "file_upload"
 	// TODO payment and address
 }
 

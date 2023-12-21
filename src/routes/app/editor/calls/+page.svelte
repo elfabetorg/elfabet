@@ -6,9 +6,12 @@
 	import Alert from "$lib/components/general/Alert.svelte";
 	import ModalView from "$lib/components/general/ModalView.svelte";
 	import JSZip from 'jszip';
+	import { user } from "$lib/authStore";
+	import { onMount } from 'svelte';
 
 	let searchText = "";
 	let fileInput;
+	let orgID;
 
 	// Table constants
 	let currentTabIndex = 0;
@@ -41,6 +44,18 @@
 	let uploadAlertData = {
 		alertCopy: "Are you sure you want to upload these calls?"
 	}
+
+	// Lifecycle
+	onMount(async () => {
+		orgID = await getOrgId();
+	});
+
+	const getOrgId = async () => {
+		const userID = $user.uid;
+		const url = `/api/getUserInfo?userid=${userID}`;
+		const userData = await fetch(url).then((res) => res.json());
+		return userData.org._id;
+	};
 	
 	const duplicateCall = async () => {
 		await fetch('/api/calls/duplicateCall', { 
@@ -87,11 +102,13 @@
 	const recycleCalls = async () => {
 		const unlistedCalls = await fetch(`/api/calls/fetchCalls?` + new URLSearchParams({
 			status: ['unlisted'],
-			getRaw: true
+			getRaw: true,
+			orgID: orgID
 		})).then((res) => res.json());
 		const inactiveCalls = await fetch(`/api/calls/fetchCalls?` + new URLSearchParams({
 			status: ['inactive'],
-			getRaw: true
+			getRaw: true,
+			orgID: orgID
 		})).then((res) => res.json());
 		const callsToRecycle = [...unlistedCalls, ...inactiveCalls];
 		let json = JSON.stringify(callsToRecycle);
@@ -108,9 +125,12 @@
 	}
 
 	const handleAddCall = () => {
+		console.log(orgID);
+		// FIXME: why is orgID not being passed on?????
 		// Generate a new call object with default properties
 		activeCall = {
 			_id: null,
+			orgID: orgID,
 			title: 'New Call', // Default title
 			endsOn: {
 				type: 'Date', // Default endsOn type
@@ -183,7 +203,7 @@
 		<button on:click={handleAddCall}>Add Call</button>
 		<button on:click={handleImportCalls}>Import Calls</button>
 	</div>
-	<CallsTable bind:searchText={searchText} bind:selectedTabIndex={currentTabIndex} bind:copyActive={copyActive} bind:trashActive={trashActive} bind:activeCall={activeCall} bind:fetchDataAgain={fetchDataAgain} bind:showDetailView={showDetailView} {tabs} {columnTitles} />
+	<CallsTable bind:searchText={searchText} bind:selectedTabIndex={currentTabIndex} bind:copyActive={copyActive} bind:trashActive={trashActive} bind:activeCall={activeCall} bind:fetchDataAgain={fetchDataAgain} bind:showDetailView={showDetailView} {tabs} {columnTitles} {orgID} />
 	<Alert bind:active={copyActive} title={copyAlertData.title} desc={copyAlertData.desc} action={duplicateCall} />
 	<Alert bind:active={trashActive} title={trashAlertData.title} desc={trashAlertData.desc} action={deleteCall} />
 	<Alert bind:active={recycleActive} title={recycleAlertData.title} desc={recycleAlertData.desc} action={recycleCalls} />
@@ -211,6 +231,8 @@
 		display: flex;
 		flex-direction: row;
 		gap: 16px;
+		padding-left: 28px;
+		padding-top: 28px;
 	}
 	li {
 		font-size: 24px;

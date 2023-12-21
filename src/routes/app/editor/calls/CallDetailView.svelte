@@ -1,6 +1,7 @@
 <script>
 	import TabView from '$lib/components/general/TabView.svelte';
 	import CallDetailsTab from "./CallDetailsTab.svelte";
+	import SubmissionFormTab from "./SubmissionFormTab.svelte";
 	import { mongoDateToReadableFormat } from '$lib/utils/mongoDButils.js';
 
   export let call;
@@ -18,7 +19,7 @@
 	<h1>{call.title}</h1>
 	<div id="ends-on">
 		{#if call.endsOn.type === 'Date'}
-			<h3>Ends on {mongoDateToReadableFormat(call.endsOn.date)}</h3>
+			<h3>Ends on {mongoDateToReadableFormat(call.endsOn.date)} in your time zone</h3>
 		{:else if call.endsOn.type === 'Quota'}
 			<h3>Ends on Quota</h3>
 		{/if}
@@ -30,7 +31,7 @@
 				{#if selectedTabIndex === 0}
 					<CallDetailsTab bind:form={call.form} bind:call={call}/>
 				{:else if selectedTabIndex === 1}
-					<p>Content for Tab 2</p>
+					<SubmissionFormTab bind:form={call.form} bind:call={call} />
 				{:else if selectedTabIndex === 2}
 					<p>Content for Tab 3</p>
 				{:else}

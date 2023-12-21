@@ -4,6 +4,9 @@
 	import { calls } from "$lib/interfaces/utils.ts";
 	import { onMount } from "svelte";
 
+	// Constants
+	export let orgID;
+
 	// Data state
 	export let tabs;
 	export let columnTitles;
@@ -34,27 +37,32 @@
 		})
 	};
 
-	const fetchCalls = async (callsStatus, callsLimit, callsSearchText) => {
+	const fetchCalls = async (callsStatus, callsLimit, callsSearchText, orgID) => {
 		rowData = await fetch(`/api/calls/fetchCalls?` + new URLSearchParams({
 			status: callsStatus,
 			limit: callsLimit,
 			searchText: callsSearchText,
+			orgID: orgID,
 		})).then((res) => res.json());
 		rawRowData = await fetch(`/api/calls/fetchCalls?` + new URLSearchParams({
 			status: callsStatus,
 			limit: callsLimit,
 			searchText: callsSearchText,
-			getRaw: true
+			getRaw: true,
+			orgID: orgID,
 		})).then((res) => res.json());
 		fetchDataAgain = false;
 	};
 
 	// Dynamic statements
-	$: fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText); // re-fetch processed call data for table after search change
+	$: {
+		console.log(tabStatuses[selectedTabIndex]);
+		fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText, orgID);
+	} // re-fetch processed call data for table after search change
 	// TODO: add a delay to the search, don't do it after every change, bc rn it's chonky. maybe have a donetyping variable and 
 	// split into separate call
-	$: fetchDataAgain, fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText);
-	$: showDetailView, fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText);
+	$: fetchDataAgain, fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText, orgID);
+	$: showDetailView, fetchCalls(tabStatuses[selectedTabIndex], rowLimit, searchText, orgID);
 
 </script>
 

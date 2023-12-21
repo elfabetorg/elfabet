@@ -19,7 +19,7 @@
 	<p>This is {$user.displayName}'s submissions tab.</p>
 	{#if userData !== null}
 		{#if userData.org !== null}
-			<p>{$user.displayName} is part of the {userData.org} organization.</p>
+			<p>{$user.displayName} is part of the {userData.org.name} organization.</p>
 		{:else}
 			<p>You're not part of an organization yet. Request to join one:</p>
 			<input type="text">
