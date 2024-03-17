@@ -13,7 +13,7 @@
 without losing your sanity
 (& your life savings)
 		</h1>
-		<p>Elfabet is an intuitive, pay-what-you-want submission manager optimized for the literary community. Made for editors, by editors. Launching Fall 2023.</p>
+		<p>Elfabet is an intuitive, pay-what-you-want submission manager optimized for the literary community. Made for editors, by editors.</p>
 	</div>
 	<div class="buttons-row">
 		<WaitlistButton />

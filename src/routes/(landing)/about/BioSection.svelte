@@ -8,7 +8,7 @@
 		{
 			name: "Abigail Chang",
 			title: "Co-founder",
-			bio: "Abigail Chang is a writer and editor based in Taipei, Taiwan. Her work appears or is forthcoming in Fractured, Salamander, Moon City Review, Cortland Review, Citron Review, the Shore, Gone Lawn, and elsewhere. In her spare time, she enjoys listening to Frank Ocean and drinking too many iced lattes. Find her at twitter @honeybutterball or at <a href='https://abigailchang.carrd.co'>https://abigailchang.carrd.co</a>",
+			bio: "Abigail Chang is a writer, editor and designer currently based in Taipei, Taiwan. She is the founding EIC of SUNHOUSE Literary, and her work appears or is forthcoming in Salamander, Diode, the Normal School, Quarterly West, Redivider, Puerto del Sol, Los Angeles Review, Cortland Review, and elsewhere. Find her at twitter @honeybutterball or at <a href='https://abigailchang.carrd.co'>https://abigailchang.carrd.co</a>",
 			socials: [
 				{
 					name: "Gmail",
